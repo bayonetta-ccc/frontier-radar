@@ -863,12 +863,17 @@ def render_dashboard(runs: list[dict], task: dict | None, claims: list[dict]) ->
 def _claim_row(claim: dict) -> str:
     status = str(claim.get("status", ""))
     label = STATUS_LABELS.get(status, status)
+    pending = (
+        '<span class="tag layer-rumor">待确认</span>'
+        if claim.get("pending_review")
+        else ""
+    )
     return (
         f'<div class="claim-row"><span class="sid">{_esc(claim.get("claim_id", "").split("_")[-1])}</span>'
         f'<span>{_esc(claim.get("statement", ""))}</span>'
         f'<span>{_conf_bar(float(claim.get("confidence", 0)))}</span>'
         f'<span><span class="tag layer-version">{_esc(label)}</span>'
-        f'{"<span class=\"tag layer-rumor\">待确认</span>" if claim.get("pending_review") else ""}</span></div>'
+        f"{pending}</span></div>"
     )
 
 
