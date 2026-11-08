@@ -1,0 +1,16 @@
+{
+  "demo": true,
+  "notice": "本文件是合成的演示数据（fixture）。这一期只有一条重复转载，用来验证“无实质变化时可以明确不推送”。",
+  "signals": [
+    {
+      "signal_id": "sig_20260812_repost_standard",
+      "source_id": "battery_industry_media",
+      "title": "固态电池术语与测试方法标准草案进入公开征求意见阶段（转载）",
+      "url": "https://example.com/battery-media/std-comment-repost-20260812",
+      "published_at": "2026-08-12T10:20:00+08:00",
+      "excerpt": "全国标准化技术委员会公告，固态电池术语与测试方法标准草案即日起公开征求意见，截止日期为 9 月 20 日，尚未正式发布。",
+      "author": "电池产业媒体编辑部",
+      "lang": "zh"
+    }
+  ]
+}

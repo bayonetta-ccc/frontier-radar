@@ -1,0 +1,96 @@
+{
+  "demo": true,
+  "notice": "本文件是合成的演示数据（fixture），用于在任何网络环境下复现产品行为；URL 使用 example.com 占位，不代表真实新闻。",
+  "signals": [
+    {
+      "signal_id": "sig_20260801_toyota_pilot",
+      "source_id": "toyota_newsroom",
+      "title": "丰田固态电池试产线 2026 年启动，2027—2028 年量产计划不变",
+      "url": "https://example.com/toyota/newsroom/pilot-line-20260801",
+      "published_at": "2026-08-01T10:00:00+09:00",
+      "excerpt": "丰田宣布固态电池试产线将于 2026 年内启动，并再次确认 2027—2028 年量产装车计划不变，量产初期将优先供应高端车型。",
+      "author": "Toyota Newsroom",
+      "lang": "en"
+    },
+    {
+      "signal_id": "sig_20260801_media_repost",
+      "source_id": "battery_industry_media",
+      "title": "丰田固态电池试产线 2026 年启动，2027—2028 年量产计划不变（转载）",
+      "url": "https://example.com/battery-media/toyota-repost-20260801",
+      "published_at": "2026-08-01T18:20:00+08:00",
+      "excerpt": "丰田宣布固态电池试产线将于 2026 年内启动，并再次确认 2027—2028 年量产装车计划不变，量产初期将优先供应高端车型。",
+      "author": "电池产业媒体编辑部",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "sig_20260803_catl_pilot",
+      "source_id": "catl_news",
+      "title": "宁德时代硫化物固态电池中试线进入设备安装，规划 2027 年小批量交付",
+      "url": "https://example.com/catl/news/pilot-20260803",
+      "published_at": "2026-08-03T11:00:00+08:00",
+      "excerpt": "宁德时代宣布硫化物固态电池中试线进入设备安装阶段，规划 2027 年实现小批量交付，并称中试线将用于验证电解质工艺与良率。",
+      "author": "CATL 新闻中心",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "sig_20260804_nissan_delay",
+      "source_id": "automotive_media",
+      "title": "日产将固态电池中试线投产时间推迟一年，称良率未达预期",
+      "url": "https://example.com/auto-media/nissan-delay-20260804",
+      "published_at": "2026-08-04T09:40:00+08:00",
+      "excerpt": "日产表示，由于硫化物电解质良率未达预期，原定 2026 年的中试线投产将推迟一年，公司未给出新的量产时间表。",
+      "author": "汽车产业观察",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "sig_20260805_miit_comment",
+      "source_id": "miit_standards",
+      "title": "固态电池术语与测试方法标准草案进入公开征求意见阶段",
+      "url": "https://example.com/miit/standard-comment-20260805",
+      "published_at": "2026-08-05T15:00:00+08:00",
+      "excerpt": "全国标准化技术委员会公告，固态电池术语与测试方法标准草案即日起公开征求意见，截止日期为 9 月 20 日，尚未正式发布。",
+      "author": "标准化技术委员会",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "sig_20260806_talent_report",
+      "source_id": "automotive_media",
+      "title": "固态电池人才需求观察：岗位数量增长但工艺岗位占比未见提升",
+      "url": "https://example.com/auto-media/talent-report-20260806",
+      "published_at": "2026-08-06T10:30:00+08:00",
+      "excerpt": "对 30 家电池企业招聘信息的统计显示，固态电池相关岗位数量增长 12%，但量产工艺岗位占比没有提升，多数仍在招聘材料研究人员，技能要求变化不明显。",
+      "author": "汽车产业观察",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "sig_20260807_bmw_clarify",
+      "source_id": "automotive_media",
+      "title": "宝马澄清：QuantumScape 尚未完成整车级验证，仅处于样件测试阶段",
+      "url": "https://example.com/auto-media/bmw-clarify-20260807",
+      "published_at": "2026-08-07T08:30:00+08:00",
+      "excerpt": "宝马发言人对媒体澄清，QuantumScape 提供的样件仍处于台架与样件测试阶段，尚未完成整车级验证，也未进入量产定点。",
+      "author": "汽车产业观察",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "sig_20260808_analyst_opinion",
+      "source_id": "analyst_blog",
+      "title": "分析师观点：全固态电池规模量产至少还要五年",
+      "url": "https://example.com/analyst/five-years-20260808",
+      "published_at": "2026-08-08T07:00:00+08:00",
+      "excerpt": "分析师认为全固态电池规模量产至少还要五年，当前时间表过于乐观，但文章没有给出新的数据或来源。",
+      "author": "独立分析师",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "sig_20260808_forum",
+      "source_id": "social_forum",
+      "title": "论坛讨论：宝马澄清之后，QuantumScape 的验证进度到底如何",
+      "url": "https://example.com/forum/thread/9022",
+      "published_at": "2026-08-08T12:15:00+08:00",
+      "excerpt": "网友围绕宝马的澄清展开讨论，多数说法基于转述与猜测，没有提供新的原始材料。",
+      "author": "匿名用户",
+      "lang": "zh"
+    }
+  ]
+}

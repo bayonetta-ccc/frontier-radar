@@ -1,0 +1,56 @@
+{
+  "demo": true,
+  "notice": "量化研究领域的合成演示信号，仅用于验证“新增领域只需一个 JSON”的扩展性。",
+  "signals": [
+    {
+      "signal_id": "q_sig_20260710_ssrn",
+      "source_id": "ssrn_arxiv",
+      "title": "预印本：基于订单流失衡的日内因子在 A 股的样本外表现",
+      "url": "https://example.com/ssrn/order-flow-factor",
+      "published_at": "2026-07-10T09:00:00+08:00",
+      "excerpt": "论文报告了一个基于订单流失衡的日内因子，样本内夏普 1.8，样本外区间为 2023—2025 年，未披露交易成本与容量。",
+      "author": "Working paper",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "q_sig_20260715_github",
+      "source_id": "github_factors",
+      "title": "开源因子库发布 v2，新增 12 个因子的复现代码",
+      "url": "https://example.com/github/factor-zoo-v2",
+      "published_at": "2026-07-15T09:00:00+08:00",
+      "excerpt": "该仓库新增 12 个因子的复现代码与 notebook，其中 3 个包含独立样本外区间说明，其余仅有样本内结果。",
+      "author": "factor-zoo",
+      "lang": "en"
+    },
+    {
+      "signal_id": "q_sig_20260720_media",
+      "source_id": "quant_media",
+      "title": "某量化私募称其 AI 投研 Agent 已接入研究流程",
+      "url": "https://example.com/quant-media/ai-agent",
+      "published_at": "2026-07-20T09:00:00+08:00",
+      "excerpt": "该机构表示 AI Agent 已用于研报摘要与因子假设生成，但未披露评测集、错误率或人工复核成本。",
+      "author": "量化行业媒体",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "q_sig_20260725_rules",
+      "source_id": "exchange_rules",
+      "title": "交易所就程序化交易报备细则公开征求意见",
+      "url": "https://example.com/exchange/program-trading-draft",
+      "published_at": "2026-07-25T09:00:00+08:00",
+      "excerpt": "细则草案要求程序化交易账户报备策略类型与接入方式，设置三个月过渡期，正式实施日期尚未确定。",
+      "author": "交易所",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "q_sig_20260802_denial",
+      "source_id": "quant_media",
+      "title": "涉事私募澄清：AI Agent 尚未进入实盘决策流程",
+      "url": "https://example.com/quant-media/ai-agent-clarify",
+      "published_at": "2026-08-02T09:00:00+08:00",
+      "excerpt": "该机构澄清，AI Agent 仅用于研究辅助，尚未接入实盘决策，也未完成生产化评测，此前报道存在误读。",
+      "author": "量化行业媒体",
+      "lang": "zh"
+    }
+  ]
+}

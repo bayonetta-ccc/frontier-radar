@@ -1,0 +1,218 @@
+{
+  "slug": "quant_research",
+  "name": "量化研究",
+  "language": "zh",
+  "description": "跟踪因子方法、另类数据、AI 投研工具链与岗位技能变化。",
+  "stages": [
+    {
+      "level": 0,
+      "key": "paper",
+      "label": "论文/预印本",
+      "keywords": ["论文", "预印本", "SSRN", "arXiv", "期刊", "peer-reviewed", "working paper"]
+    },
+    {
+      "level": 1,
+      "key": "replication",
+      "label": "代码复现",
+      "keywords": ["复现", "代码", "notebook", "repository", "开源实现", "replication"]
+    },
+    {
+      "level": 2,
+      "key": "backtest",
+      "label": "回测验证",
+      "keywords": ["回测", "样本外", "walk-forward", "夏普", "回撤", "backtest", "out-of-sample"]
+    },
+    {
+      "level": 3,
+      "key": "paper_trade",
+      "label": "模拟盘/小资金",
+      "keywords": ["模拟盘", "paper trading", "小资金", "实盘测试", "pilot account"]
+    },
+    {
+      "level": 4,
+      "key": "production_plan",
+      "label": "生产化计划",
+      "keywords": ["生产化", "上线计划", "风控上线", "容量评估", "production plan"]
+    },
+    {
+      "level": 5,
+      "key": "production",
+      "label": "已上线运行",
+      "keywords": ["已上线", "实盘运行", "生产环境", "in production", "live trading"]
+    }
+  ],
+  "entities": [
+    {"key": "vendor_a", "name": "另类数据供应商 A", "aliases": ["AltData A", "供应商A"], "kind": "vendor"},
+    {"key": "broker_b", "name": "券商 B", "aliases": ["Broker B"], "kind": "broker"},
+    {"key": "fund_c", "name": "量化私募 C", "aliases": ["Fund C"], "kind": "fund"},
+    {"key": "oss_factor", "name": "开源因子库", "aliases": ["factor zoo", "因子库"], "kind": "repository"},
+    {"key": "regulation", "name": "交易制度/监管", "aliases": ["程序化交易新规", "交易所规则"], "kind": "regulator"}
+  ],
+  "anchors": [
+    {
+      "key": "factor_method",
+      "name": "新因子方法的可信度",
+      "claim_kind": "technology",
+      "keywords": ["因子", "alpha", "信号", "样本外", "容量", "衰减"],
+      "entity_keys": ["oss_factor"],
+      "question": "近期出现的新因子方法是否经过独立复现与样本外验证？",
+      "baseline_claim": "新因子方法仍以论文和回测为主，缺少独立样本外复现",
+      "watch_indicators": ["是否出现第三方复现代码", "样本外区间是否覆盖不同市场状态", "容量与交易成本是否披露"],
+      "next_verification": "优先核对复现代码与样本外区间，而不是论文里的样本内夏普。"
+    },
+    {
+      "key": "alt_data",
+      "name": "另类数据的可用性",
+      "claim_kind": "commercialization",
+      "keywords": ["另类数据", "卫星", "信用卡", "招聘数据", "数据覆盖", "PIT"],
+      "entity_keys": ["vendor_a"],
+      "question": "另类数据是否具备可用的历史覆盖与 point-in-time 质量？",
+      "baseline_claim": "另类数据供应商的历史覆盖与 PIT 质量仍不透明",
+      "watch_indicators": ["是否提供 PIT 快照与回填说明", "覆盖率与存活偏差披露", "独立客户的成本收益证据"],
+      "next_verification": "要求供应商提供 PIT 样本与回填日志，并用小样本复核。"
+    },
+    {
+      "key": "ai_tooling",
+      "name": "AI 投研工具的生产可用性",
+      "claim_kind": "technology",
+      "keywords": ["LLM", "Agent", "投研工具", "检索", "幻觉", "评测"],
+      "entity_keys": ["fund_c", "broker_b"],
+      "question": "AI 投研工具是否达到生产可用，而不是演示可用？",
+      "baseline_claim": "AI 投研工具仍停留在演示与辅助检索阶段",
+      "watch_indicators": ["是否有可复核的评测集", "错误率与人工复核成本", "是否接入真实交易流程"],
+      "next_verification": "找有评测集与错误率披露的案例，而不是产品发布会。"
+    },
+    {
+      "key": "hiring_skill",
+      "name": "量化岗位技能变化",
+      "claim_kind": "talent",
+      "keywords": ["招聘", "JD", "技能", "工程师", "研究员"],
+      "entity_keys": ["fund_c", "broker_b"],
+      "question": "量化岗位的技能要求是否从传统因子研究转向工程与数据？",
+      "baseline_claim": "量化岗位对工程与数据能力的要求正在上升",
+      "create_baseline_claim": false,
+      "watch_indicators": ["同一岗位 JD 的 6 个月变化", "工程类岗位占比", "面试流程是否增加工程环节"],
+      "next_verification": "对比同一公司同一岗位的历史 JD。"
+    },
+    {
+      "key": "regulation",
+      "name": "程序化交易监管影响",
+      "claim_kind": "standard",
+      "keywords": ["程序化交易", "报备", "撤单", "高频", "监管", "新规"],
+      "entity_keys": ["regulation"],
+      "question": "程序化交易新规是否改变了策略容量与合规成本？",
+      "baseline_claim": "程序化交易监管仍处于细则落地阶段，合规成本上升但边界未定",
+      "watch_indicators": ["实施细则是否发布", "报备口径与过渡期", "券商是否调整接入要求"],
+      "next_verification": "以交易所正式细则为准，区分征求意见稿与实施稿。"
+    }
+  ],
+  "sources": [
+    {
+      "id": "ssrn_arxiv",
+      "name": "SSRN / arXiv q-fin",
+      "kind": "paper",
+      "authority": "high",
+      "cadence": "daily",
+      "url": "https://arxiv.org/list/q-fin/recent",
+      "offline_file": "signals/quant-baseline.json",
+      "independent_group": "papers"
+    },
+    {
+      "id": "github_factors",
+      "name": "GitHub 因子/回测仓库",
+      "kind": "repository",
+      "authority": "medium",
+      "cadence": "weekly",
+      "url": "https://github.com/topics/quantitative-finance",
+      "offline_file": "signals/quant-baseline.json",
+      "independent_group": "github"
+    },
+    {
+      "id": "exchange_rules",
+      "name": "交易所规则与公告",
+      "kind": "standard",
+      "authority": "high",
+      "cadence": "monthly",
+      "offline_file": "signals/quant-baseline.json",
+      "independent_group": "exchange"
+    },
+    {
+      "id": "quant_media",
+      "name": "量化行业媒体",
+      "kind": "media",
+      "authority": "medium",
+      "cadence": "daily",
+      "offline_file": "signals/quant-baseline.json",
+      "independent_group": "media_pool"
+    },
+    {
+      "id": "careers_quant",
+      "name": "量化机构招聘页",
+      "kind": "job",
+      "authority": "medium",
+      "cadence": "weekly",
+      "offline_file": "signals/quant-baseline.json",
+      "independent_group": "jobs"
+    }
+  ],
+  "category_blueprint": {
+    "research": [
+      {"pattern": "论文|预印本|SSRN|arXiv|working paper", "score": 0.85, "label": "论文"},
+      {"pattern": "因子|alpha|信号", "score": 0.35, "label": "因子研究"}
+    ],
+    "open_source": [
+      {"pattern": "开源|GitHub|仓库|复现|notebook", "score": 0.9, "label": "开源/复现"}
+    ],
+    "customer_validation": [
+      {"pattern": "样本外|walk-forward|实盘测试|小资金|paper trading", "score": 0.9, "label": "样本外/实盘验证"}
+    ],
+    "standard": [
+      {"pattern": "监管|新规|细则|报备|交易所公告", "score": 0.9, "label": "监管/规则"}
+    ],
+    "hiring": [
+      {"pattern": "招聘|岗位|JD|面试", "score": 0.9, "label": "招聘"}
+    ],
+    "official_announcement": [
+      {"pattern": "宣布|公告|发布", "score": 0.6, "label": "官方发布"}
+    ]
+  },
+  "stage_patterns": {
+    "paper": [{"pattern": "论文|预印本|SSRN|arXiv|working paper", "score": 3.0, "label": "论文"}],
+    "replication": [{"pattern": "复现|开源实现|repository|notebook", "score": 3.0, "label": "复现"}],
+    "backtest": [{"pattern": "样本外|walk-forward|回测", "score": 3.0, "label": "回测"}],
+    "paper_trade": [{"pattern": "模拟盘|小资金|实盘测试|paper trading", "score": 3.0, "label": "模拟/小资金"}],
+    "production_plan": [{"pattern": "生产化|上线计划|容量评估", "score": 3.0, "label": "生产化计划"}],
+    "production": [{"pattern": "已上线|实盘运行|live trading|in production", "score": 3.0, "label": "已上线"}]
+  },
+  "lexicon": {
+    "delay": ["推迟", "延期", "回撤扩大", "失效"],
+    "failure": ["无法复现", "样本外失效", "未通过", "失败"],
+    "denial": ["澄清", "否认", "不实"],
+    "rumor": ["传闻", "据传", "消息人士", "爆料"],
+    "hype": ["颠覆", "革命性", "稳赚", "圣杯"]
+  },
+  "info_layers": {
+    "rumor": ["传闻", "据传", "消息人士", "爆料"],
+    "opinion": ["认为", "预计", "观点", "评论", "analyst"],
+    "inference": ["意味着", "可能", "有望", "implies"],
+    "company_claim": ["宣布", "表示", "称", "目标", "计划"],
+    "fact": ["发布", "提交", "签署", "披露", "上线", "复现"]
+  },
+  "negation_phrases": ["澄清", "否认", "不实", "未完成", "尚未", "未进入", "并未"],
+  "noise": {
+    "off_topic_patterns": ["基金净值排名", "路演报名", "课程优惠"],
+    "marketing_patterns": ["稳赚", "圣杯", "颠覆", "年化 50%"],
+    "min_excerpt_chars": 24,
+    "noise_categories": ["hype_product", "opinion_market"]
+  },
+  "coverage_notes": [
+    "不覆盖付费因子库与券商内部研报。",
+    "另类数据的真实覆盖与成本只在供应商披露范围内可见。",
+    "回测结果高度依赖研究者假设，不能等同于可交易收益。"
+  ],
+  "gap_questions": [
+    "新因子是否在多个市场、多个时段都通过样本外检验？",
+    "另类数据供应商是否提供 point-in-time 快照与回填日志？",
+    "AI 投研工具是否有可复核的错误率评测？"
+  ]
+}

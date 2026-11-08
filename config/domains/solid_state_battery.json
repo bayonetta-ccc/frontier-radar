@@ -1,0 +1,1064 @@
+{
+  "slug": "solid_state_battery",
+  "name": "固态电池",
+  "language": "zh",
+  "description": "跟踪硫化物/氧化物等技术路线、量产节点、客户验证与标准进展。",
+  "stages": [
+    {
+      "level": 0,
+      "key": "paper",
+      "label": "论文结果",
+      "keywords": [
+        "论文",
+        "预印本",
+        "期刊",
+        "Nature",
+        "Science",
+        "Joule",
+        "arXiv",
+        "同行评审",
+        "paper",
+        "preprint",
+        "peer-reviewed"
+      ]
+    },
+    {
+      "level": 1,
+      "key": "lab",
+      "label": "实验室样品",
+      "keywords": [
+        "实验室",
+        "克级",
+        "纽扣电池",
+        "小软包",
+        "安时级",
+        "lab-scale",
+        "coin cell",
+        "prototype cell",
+        "实验室样品"
+      ]
+    },
+    {
+      "level": 2,
+      "key": "pilot",
+      "label": "中试线",
+      "keywords": [
+        "中试",
+        "中试线",
+        "试产",
+        "试验线",
+        "小批量",
+        "pilot line",
+        "pilot production",
+        "试制线",
+        "试产线"
+      ]
+    },
+    {
+      "level": 3,
+      "key": "validation",
+      "label": "客户验证",
+      "keywords": [
+        "送样",
+        "样品交付",
+        "客户验证",
+        "装车测试",
+        "路测",
+        "A样",
+        "B样",
+        "定点",
+        "qualified",
+        "sampling",
+        "customer validation"
+      ]
+    },
+    {
+      "level": 4,
+      "key": "sop_plan",
+      "label": "量产计划",
+      "keywords": [
+        "量产计划",
+        "计划量产",
+        "规划产能",
+        "SOP",
+        "2027年量产",
+        "2028年量产",
+        "投产计划",
+        "量产时间表",
+        "targets production"
+      ]
+    },
+    {
+      "level": 5,
+      "key": "sop",
+      "label": "实际量产",
+      "keywords": [
+        "已量产",
+        "正式量产",
+        "批量交付",
+        "规模交付",
+        "投产",
+        "mass production",
+        "in production",
+        " SOP "
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "key": "toyota",
+      "name": "丰田",
+      "aliases": [
+        "Toyota",
+        "丰田汽车"
+      ],
+      "kind": "org"
+    },
+    {
+      "key": "catl",
+      "name": "宁德时代",
+      "aliases": [
+        "CATL",
+        "Contemporary Amperex"
+      ],
+      "kind": "org"
+    },
+    {
+      "key": "quantumscape",
+      "name": "QuantumScape",
+      "aliases": [
+        "QS"
+      ],
+      "kind": "org"
+    },
+    {
+      "key": "byd",
+      "name": "比亚迪",
+      "aliases": [
+        "BYD"
+      ],
+      "kind": "org"
+    },
+    {
+      "key": "panasonic",
+      "name": "松下",
+      "aliases": [
+        "Panasonic"
+      ],
+      "kind": "org"
+    },
+    {
+      "key": "nissan",
+      "name": "日产",
+      "aliases": [
+        "Nissan"
+      ],
+      "kind": "org"
+    },
+    {
+      "key": "byd_bench",
+      "name": "清陶能源",
+      "aliases": [
+        "清陶",
+        "QingTao"
+      ],
+      "kind": "org"
+    },
+    {
+      "key": "weilan",
+      "name": "卫蓝新能源",
+      "aliases": [
+        "卫蓝",
+        "WeLion"
+      ],
+      "kind": "org"
+    },
+    {
+      "key": "solidpower",
+      "name": "Solid Power",
+      "aliases": [
+        "SolidPower"
+      ],
+      "kind": "org"
+    },
+    {
+      "key": "bmw",
+      "name": "宝马",
+      "aliases": [
+        "BMW"
+      ],
+      "kind": "org"
+    },
+    {
+      "key": "mercedes",
+      "name": "梅赛德斯-奔驰",
+      "aliases": [
+        "Mercedes-Benz",
+        "奔驰"
+      ],
+      "kind": "org"
+    },
+    {
+      "key": "nmi",
+      "name": "中国汽车技术研究中心",
+      "aliases": [
+        "中汽中心",
+        "CATARC"
+      ],
+      "kind": "standard_body"
+    },
+    {
+      "key": "miit",
+      "name": "工业和信息化部",
+      "aliases": [
+        "工信部",
+        "MIIT"
+      ],
+      "kind": "regulator"
+    },
+    {
+      "key": "sulfide",
+      "name": "硫化物路线",
+      "aliases": [
+        "硫化物电解质",
+        "sulfide electrolyte",
+        "硫化物固态"
+      ],
+      "kind": "route"
+    },
+    {
+      "key": "oxide",
+      "name": "氧化物路线",
+      "aliases": [
+        "氧化物电解质",
+        "oxide electrolyte",
+        "氧化物固态"
+      ],
+      "kind": "route"
+    },
+    {
+      "key": "polymer",
+      "name": "聚合物路线",
+      "aliases": [
+        "聚合物电解质",
+        "polymer electrolyte"
+      ],
+      "kind": "route"
+    }
+  ],
+  "anchors": [
+    {
+      "key": "toyota_timeline",
+      "name": "丰田固态电池量产时间表",
+      "claim_kind": "roadmap",
+      "keywords": [
+        "时间表",
+        "量产",
+        "2027",
+        "2028",
+        "推迟",
+        "提前",
+        "重申",
+        "不变"
+      ],
+      "entity_keys": [
+        "toyota"
+      ],
+      "question": "丰田的固态电池量产节点是否发生变化？",
+      "high_risk": true,
+      "watch_indicators": [
+        "丰田官方新闻稿是否再次提到量产年份与车型",
+        "是否出现第三方（供应商、车企客户）独立确认试产节点",
+        "试产线良率或成本数据是否首次披露"
+      ],
+      "next_verification": "等待丰田下一次官方技术说明会或财报问答，核对“2027—2028 量产”是否有车型与产能配套。",
+      "baseline_claim": "丰田计划在 2027—2028 年实现全固态电池量产装车"
+    },
+    {
+      "key": "route_competition",
+      "name": "硫化物与氧化物路线之争",
+      "claim_kind": "technology",
+      "keywords": [
+        "硫化物",
+        "氧化物",
+        "路线",
+        "电解质",
+        "离子电导率",
+        "界面",
+        "技术分歧",
+        "中试"
+      ],
+      "entity_keys": [
+        "sulfide",
+        "oxide",
+        "catl",
+        "byd",
+        "quantumscape",
+        "solidpower",
+        "weilan",
+        "byd_bench"
+      ],
+      "question": "硫化物与氧化物路线谁更接近产业化，依据是什么？",
+      "watch_indicators": [
+        "两条路线各自的电芯容量、良率与成本口径",
+        "是否出现可独立复现的第三方测试数据",
+        "头部厂商的路线选择是否发生切换"
+      ],
+      "next_verification": "优先找有实测数据的第三方评测或车企定点公告，而不是发布会表述。",
+      "baseline_claim": "硫化物路线在产业化进度上领先，但氧化物路线仍在储能场景保留机会"
+    },
+    {
+      "key": "quantumscape_validation",
+      "name": "QuantumScape 客户验证阶段",
+      "claim_kind": "commercialization",
+      "keywords": [
+        "客户验证",
+        "送样",
+        "装车",
+        "B样",
+        "样件",
+        "验证"
+      ],
+      "entity_keys": [
+        "quantumscape",
+        "bmw"
+      ],
+      "question": "QuantumScape 是否真正进入整车级客户验证？",
+      "high_risk": true,
+      "watch_indicators": [
+        "合作车企是否公开确认装车或联合测试",
+        "QuantumScape 是否披露客户名称、样件数量与测试结果",
+        "是否出现第三方拆解或路测证据"
+      ],
+      "next_verification": "等待合作车企（如宝马）在官方渠道对验证阶段的表述。",
+      "baseline_claim": "QuantumScape 已进入整车级客户验证阶段"
+    },
+    {
+      "key": "standard",
+      "name": "固态电池标准与监管进展",
+      "claim_kind": "standard",
+      "keywords": [
+        "标准",
+        "国标",
+        "团标",
+        "法规",
+        "安全规范",
+        "征求意见",
+        "认证"
+      ],
+      "entity_keys": [
+        "miit",
+        "nmi",
+        "catl",
+        "byd"
+      ],
+      "question": "固态电池的标准与监管框架是否已形成统一路线？",
+      "watch_indicators": [
+        "标准是否从“征求意见”转为“发布/实施”",
+        "是否明确测试方法与安全门槛",
+        "头部厂商是否公开按该标准送检"
+      ],
+      "next_verification": "在标准信息平台核对标准号、状态与实施日期，避免把草案当成已生效规范。",
+      "baseline_claim": "固态电池标准仍处于草案阶段，尚未形成统一的强制规范",
+      "claim_template": "固态电池标准仍停留在{stage}，尚未形成统一的强制规范"
+    },
+    {
+      "key": "talent",
+      "name": "固态电池人才与岗位需求",
+      "claim_kind": "talent",
+      "keywords": [
+        "招聘",
+        "岗位",
+        "工程师",
+        "技能",
+        "人才",
+        "JD",
+        "工艺",
+        "产线"
+      ],
+      "entity_keys": [
+        "catl",
+        "byd",
+        "toyota",
+        "quantumscape",
+        "panasonic",
+        "nissan"
+      ],
+      "question": "固态电池相关岗位的技能要求是否从材料研究转向量产工艺？",
+      "watch_indicators": [
+        "同一岗位在 3—6 个月内 JD 是否变化",
+        "是否出现“量产工艺/设备”类新岗位",
+        "工艺类岗位与材料研究类岗位的比例变化"
+      ],
+      "next_verification": "对比同一公司同一岗位的历史 JD，并区分“长期挂岗”与真实新增需求。",
+      "baseline_claim": "固态电池量产工艺岗位需求正在增加，技能要求从材料研究转向工艺与设备",
+      "create_baseline_claim": false
+    }
+  ],
+  "sources": [
+    {
+      "id": "toyota_newsroom",
+      "name": "Toyota Times / Newsroom",
+      "kind": "official",
+      "authority": "high",
+      "cadence": "weekly",
+      "url": "https://global.toyota/en/newsroom/",
+      "offline_file": "signals/baseline.json",
+      "note": "主机厂官方口径；只证明“公司这样宣布”，不证明技术已成熟。",
+      "independent_group": "toyota"
+    },
+    {
+      "id": "catl_news",
+      "name": "宁德时代新闻中心",
+      "kind": "official",
+      "authority": "high",
+      "cadence": "weekly",
+      "url": "https://www.catl.com/news/",
+      "offline_file": "signals/baseline.json",
+      "note": "公司公告与产品发布。",
+      "independent_group": "catl"
+    },
+    {
+      "id": "quantumscape_ir",
+      "name": "QuantumScape 投资者关系",
+      "kind": "official",
+      "authority": "high",
+      "cadence": "weekly",
+      "url": "https://www.quantumscape.com/news/",
+      "offline_file": "signals/baseline.json",
+      "note": "财报、技术进展与股东信。",
+      "independent_group": "quantumscape"
+    },
+    {
+      "id": "arxiv_battery",
+      "name": "arXiv 电池与材料预印本",
+      "kind": "paper",
+      "authority": "high",
+      "cadence": "weekly",
+      "url": "https://arxiv.org/list/cond-mat.mtrl-sci/recent",
+      "offline_file": "signals/baseline.json",
+      "note": "预印本未经同行评审，属于“论文结果”阶段。",
+      "independent_group": "arxiv"
+    },
+    {
+      "id": "patents_solid_state",
+      "name": "专利检索（固态电解质）",
+      "kind": "patent",
+      "authority": "high",
+      "cadence": "monthly",
+      "url": "https://patents.google.com/?q=solid-state+battery+electrolyte",
+      "offline_file": "signals/baseline.json",
+      "note": "专利只反映布局意图，不等同于产品能力。",
+      "independent_group": "patents"
+    },
+    {
+      "id": "miit_standards",
+      "name": "工信部 / 全国标准信息公共服务平台",
+      "kind": "standard",
+      "authority": "high",
+      "cadence": "monthly",
+      "url": "https://www.miit.gov.cn/",
+      "offline_file": "signals/baseline.json",
+      "note": "标准草案、征求意见稿与正式发布。",
+      "independent_group": "miit"
+    },
+    {
+      "id": "battery_industry_media",
+      "name": "电池产业媒体（转载为主）",
+      "kind": "media",
+      "authority": "medium",
+      "cadence": "daily",
+      "url": "",
+      "offline_file": "signals/baseline.json",
+      "note": "多数内容来自企业通稿或二手编译，需回溯原始出处。",
+      "independent_group": "media_pool"
+    },
+    {
+      "id": "automotive_media",
+      "name": "汽车产业媒体",
+      "kind": "media",
+      "authority": "medium",
+      "cadence": "daily",
+      "url": "",
+      "offline_file": "signals/baseline.json",
+      "note": "适合发现新事件，结论需独立来源印证。",
+      "independent_group": "media_pool"
+    },
+    {
+      "id": "analyst_blog",
+      "name": "独立分析师博客",
+      "kind": "media",
+      "authority": "low",
+      "cadence": "weekly",
+      "url": "",
+      "offline_file": "signals/baseline.json",
+      "note": "观点与预测，不能作为事实证据。",
+      "independent_group": "analyst"
+    },
+    {
+      "id": "social_forum",
+      "name": "社交平台 / 论坛",
+      "kind": "social",
+      "authority": "low",
+      "cadence": "daily",
+      "url": "",
+      "offline_file": "signals/baseline.json",
+      "note": "仅作为线索来源，默认不进入判断更新。",
+      "independent_group": "social"
+    },
+    {
+      "id": "careers_board",
+      "name": "企业招聘页面",
+      "kind": "job",
+      "authority": "medium",
+      "cadence": "weekly",
+      "url": "",
+      "offline_file": "signals/baseline.json",
+      "note": "岗位描述反映能力要求，但可能长期挂着不更新。",
+      "independent_group": "jobs"
+    },
+    {
+      "id": "github_solid_state",
+      "name": "GitHub 相关开源仓库",
+      "kind": "repository",
+      "authority": "medium",
+      "cadence": "weekly",
+      "url": "https://github.com/topics/solid-state-battery",
+      "offline_file": "signals/baseline.json",
+      "note": "数据与仿真工具，不是电芯产品进展。",
+      "independent_group": "github"
+    }
+  ],
+  "lexicon": {
+    "official_announcement": [
+      "宣布",
+      "发布",
+      "公告",
+      "新闻稿",
+      "宣布计划",
+      "announced",
+      "unveils",
+      "press release"
+    ],
+    "research": [
+      "论文",
+      "预印本",
+      "研究",
+      "期刊",
+      "Nature",
+      "Science",
+      "Joule",
+      "arXiv",
+      "实验结果",
+      "peer-reviewed",
+      "study"
+    ],
+    "patent": [
+      "专利",
+      "专利申请",
+      "patent",
+      "PCT"
+    ],
+    "standard": [
+      "标准",
+      "国标",
+      "团标",
+      "法规",
+      "征求意见稿",
+      "认证",
+      "standard",
+      "regulation"
+    ],
+    "pilot_line": [
+      "中试",
+      "中试线",
+      "试产",
+      "试验线",
+      "pilot line",
+      "试制线"
+    ],
+    "capacity": [
+      "产能",
+      "扩产",
+      "工厂",
+      "产线",
+      "GWh",
+      "投产",
+      "capacity",
+      "gigafactory"
+    ],
+    "customer_validation": [
+      "送样",
+      "客户验证",
+      "装车",
+      "路测",
+      "定点",
+      "A样",
+      "B样",
+      "sampling",
+      "validation"
+    ],
+    "mass_production_plan": [
+      "量产计划",
+      "计划量产",
+      "时间表",
+      "SOP",
+      "2027年",
+      "2028年",
+      "投产计划",
+      "targets production"
+    ],
+    "mass_production_actual": [
+      "已量产",
+      "正式量产",
+      "批量交付",
+      "规模交付",
+      "mass production",
+      "in production"
+    ],
+    "product": [
+      "产品",
+      "电芯",
+      "电池包",
+      "样件",
+      "发布",
+      "product",
+      "cell"
+    ],
+    "funding": [
+      "融资",
+      "投资",
+      "轮融资",
+      "IPO",
+      "funding",
+      "investment"
+    ],
+    "hiring": [
+      "招聘",
+      "岗位",
+      "工程师",
+      "JD",
+      "hiring",
+      "job"
+    ],
+    "open_source": [
+      "开源",
+      "GitHub",
+      "仓库",
+      "release",
+      "open source"
+    ],
+    "delay": [
+      "推迟",
+      "延期",
+      "延后",
+      "跳票",
+      "delay",
+      "postpone",
+      "delayed"
+    ],
+    "failure": [
+      "失败",
+      "撤回",
+      "无法复现",
+      "未通过",
+      "取消",
+      "终止",
+      "failed",
+      "retraction",
+      "unable to reproduce",
+      "cancelled"
+    ],
+    "denial": [
+      "澄清",
+      "否认",
+      "不实",
+      "误导",
+      "并未",
+      "尚未",
+      "没有进入",
+      "denies",
+      "clarifies",
+      "not true"
+    ],
+    "milestone": [
+      "首次",
+      "里程碑",
+      "突破",
+      "达成",
+      "first",
+      "milestone"
+    ],
+    "hype": [
+      "颠覆",
+      "革命性",
+      "全球首个",
+      "遥遥领先",
+      "game changer",
+      "revolutionary",
+      "breakthrough"
+    ],
+    "rumor": [
+      "传闻",
+      "据传",
+      "消息人士",
+      "知情人士",
+      "爆料",
+      "或将",
+      "有望",
+      "rumor",
+      "reportedly",
+      "sources say"
+    ]
+  },
+  "info_layers": {
+    "version": [
+      "发布软件版本",
+      "v2.0",
+      "release notes",
+      "版本更新"
+    ],
+    "rumor": [
+      "传闻",
+      "据传",
+      "消息人士",
+      "知情人士",
+      "爆料",
+      "rumor",
+      "reportedly",
+      "sources say"
+    ],
+    "opinion": [
+      "认为",
+      "预计",
+      "预计到",
+      "分析师",
+      "观点",
+      "评论",
+      "判断",
+      "should",
+      "could",
+      "might",
+      "analyst",
+      "believes"
+    ],
+    "inference": [
+      "意味着",
+      "说明",
+      "可能",
+      "有望",
+      "或将",
+      "implies",
+      "suggests",
+      "may"
+    ],
+    "company_claim": [
+      "宣布",
+      "表示",
+      "称",
+      "目标",
+      "计划",
+      "承诺",
+      "announced",
+      "said",
+      "aims",
+      "plans",
+      "targets"
+    ],
+    "fact": [
+      "提交",
+      "发布",
+      "签署",
+      "获批",
+      "完成",
+      "检测",
+      "披露",
+      "filed",
+      "reported",
+      "signed",
+      "approved",
+      "completed"
+    ]
+  },
+  "noise": {
+    "off_topic_patterns": [
+      "招聘会",
+      "股价",
+      "概念股",
+      "涨停",
+      "直播预告",
+      "抽奖",
+      "锂价",
+      "碳酸锂价格"
+    ],
+    "marketing_patterns": [
+      "颠覆",
+      "革命性",
+      "全球首个",
+      "遥遥领先",
+      "史诗级",
+      "重新定义"
+    ],
+    "min_excerpt_chars": 24,
+    "max_rumor_only_impact": 35,
+    "noise_categories": [
+      "opinion_market",
+      "hype_product"
+    ]
+  },
+  "coverage_notes": [
+    "未覆盖付费数据库（如部分专利全文库、行业付费研报）。",
+    "日文、韩文来源仅覆盖有英文/中文版本的公告。",
+    "企业口径（新闻稿）不等于独立验证。",
+    "社交媒体与论坛仅作为线索，不单独构成判断更新依据。"
+  ],
+  "gap_questions": [
+    "头部厂商的“量产时间表”有多少来自可核验的客户合同？",
+    "硫化物路线的良率与成本数据是否有第三方复现？",
+    "标准草案是否已进入强制实施阶段？"
+  ],
+  "category_blueprint": {
+    "research": [
+      {
+        "pattern": "论文|预印本|期刊|同行评审|arXiv|peer-reviewed|study",
+        "score": 0.85,
+        "label": "论文/预印本"
+      },
+      {
+        "pattern": "研究团队|课题组|实验数据|复现|容量保持率",
+        "score": 0.35,
+        "label": "研究进展"
+      }
+    ],
+    "official_announcement": [
+      {
+        "pattern": "宣布|公告|新闻稿|announced|unveils|press release",
+        "score": 0.7,
+        "label": "官方宣布"
+      },
+      {
+        "pattern": "表示|称|目标是",
+        "score": 0.25,
+        "label": "表态"
+      }
+    ],
+    "patent": [
+      {
+        "pattern": "专利|专利申请|patent|PCT|权利要求",
+        "score": 0.9,
+        "label": "专利"
+      },
+      {
+        "pattern": "公开|实审|授权",
+        "score": 0.2,
+        "label": "专利状态"
+      }
+    ],
+    "standard": [
+      {
+        "pattern": "标准|国标|团标|法规|征求意见稿|征求意见|认证|standard|regulation",
+        "score": 0.85,
+        "label": "标准/法规"
+      },
+      {
+        "pattern": "测试方法|安全规范|术语",
+        "score": 0.3,
+        "label": "标准内容"
+      }
+    ],
+    "pilot_line": [
+      {
+        "pattern": "中试线|中试|试产线|试产|试验线|pilot line",
+        "score": 1.0,
+        "label": "中试线"
+      },
+      {
+        "pattern": "设备安装|设备选型|试制|小批量",
+        "score": 0.35,
+        "label": "产线动作"
+      }
+    ],
+    "capacity": [
+      {
+        "pattern": "产能|扩产|GWh|gigafactory|工厂|产线",
+        "score": 0.75,
+        "label": "产能"
+      },
+      {
+        "pattern": "投产|设备订单",
+        "score": 0.35,
+        "label": "投产动作"
+      }
+    ],
+    "customer_validation": [
+      {
+        "pattern": "客户验证|送样|装车测试|路测|A样|B样|定点|sample|validation",
+        "score": 1.0,
+        "label": "客户验证"
+      },
+      {
+        "pattern": "整车级|台架|样件测试",
+        "score": 0.35,
+        "label": "验证阶段"
+      }
+    ],
+    "mass_production_plan": [
+      {
+        "pattern": "计划量产|量产计划|量产目标|量产装车|量产时间表|时间表|SOP|targets production",
+        "score": 1.0,
+        "label": "量产计划"
+      },
+      {
+        "pattern": "2027|2028|2029|2030",
+        "score": 0.3,
+        "label": "时间节点"
+      }
+    ],
+    "mass_production_actual": [
+      {
+        "pattern": "正式量产|已量产|批量交付|规模交付|达成量产|in production",
+        "score": 1.0,
+        "label": "实际量产"
+      },
+      {
+        "pattern": "投产|量产",
+        "score": 0.4,
+        "label": "量产动作"
+      }
+    ],
+    "product": [
+      {
+        "pattern": "新产品|发布产品|电芯|电池包|product",
+        "score": 0.7,
+        "label": "产品"
+      }
+    ],
+    "funding": [
+      {
+        "pattern": "融资|轮融资|IPO|investment|funding",
+        "score": 0.9,
+        "label": "融资"
+      }
+    ],
+    "hiring": [
+      {
+        "pattern": "招聘|岗位|JD|hiring|工艺工程师",
+        "score": 0.9,
+        "label": "招聘"
+      }
+    ],
+    "open_source": [
+      {
+        "pattern": "开源|GitHub|仓库|release notes|open source",
+        "score": 0.85,
+        "label": "开源"
+      }
+    ]
+  },
+  "stage_patterns": {
+    "paper": [
+      {
+        "pattern": "论文|预印本|期刊|arXiv|peer-reviewed|同行评审|paper|preprint|study",
+        "score": 3.0,
+        "label": "论文"
+      },
+      {
+        "pattern": "实验室|公斤级|克级|纽扣电池|安时级",
+        "score": 1.0,
+        "label": "实验规模"
+      }
+    ],
+    "lab": [
+      {
+        "pattern": "实验室|克级|纽扣电池|小软包|安时级|prototype cell|coin cell",
+        "score": 3.0,
+        "label": "实验室样品"
+      },
+      {
+        "pattern": "样品|样件",
+        "score": 0.6,
+        "label": "样件"
+      }
+    ],
+    "pilot": [
+      {
+        "pattern": "中试线|中试|试产线|试产|试验线|pilot line|pilot production",
+        "score": 3.0,
+        "label": "中试线"
+      },
+      {
+        "pattern": "小批量|试制线",
+        "score": 0.8,
+        "label": "小批量"
+      },
+      {
+        "pattern": "草案|讨论稿|征求意见稿|团体标准草案",
+        "score": 1.6,
+        "label": "标准草案"
+      }
+    ],
+    "validation": [
+      {
+        "pattern": "客户验证|送样|装车测试|路测|B样|A样|定点|qualified|customer validation|sampling",
+        "score": 3.0,
+        "label": "客户验证"
+      },
+      {
+        "pattern": "台架|样件测试|整车级",
+        "score": 0.8,
+        "label": "测试阶段"
+      }
+    ],
+    "sop_plan": [
+      {
+        "pattern": "量产计划|计划量产|量产目标|量产时间表|时间表|SOP|targets production",
+        "score": 3.0,
+        "label": "量产计划"
+      },
+      {
+        "pattern": "2027年量产|2028年量产|规划产能",
+        "score": 1.2,
+        "label": "量产节点"
+      },
+      {
+        "pattern": "公开征求意见|征求意见阶段|进入征求意见",
+        "score": 1.6,
+        "label": "公开征求意见"
+      }
+    ],
+    "sop": [
+      {
+        "pattern": "正式量产|已量产|批量交付|规模交付|mass production|in production",
+        "score": 3.0,
+        "label": "实际量产"
+      },
+      {
+        "pattern": "投产",
+        "score": 0.5,
+        "label": "投产动作"
+      },
+      {
+        "pattern": "正式发布|强制实施|标准实施|发布实施",
+        "score": 1.6,
+        "label": "标准发布实施"
+      }
+    ]
+  },
+  "negation_phrases": [
+    "澄清",
+    "否认",
+    "不实",
+    "未完成",
+    "尚未完成",
+    "未进入",
+    "尚未进入",
+    "没有进入",
+    "并未",
+    "未通过",
+    "denies",
+    "clarifies",
+    "did not",
+    "has not",
+    "not yet"
+  ]
+}

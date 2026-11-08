@@ -1,0 +1,186 @@
+{
+  "demo": true,
+  "notice": "本文件是合成的演示数据（fixture），用于在任何网络环境下复现产品行为；URL 使用 example.com 占位，不代表真实新闻。真实使用时请配置自己的来源与抓取结果。",
+  "signals": [
+    {
+      "signal_id": "sig_20260628_media_sulfide",
+      "source_id": "battery_industry_media",
+      "title": "硫化物固态电解质产业化提速，多家电池厂启动中试布局",
+      "url": "https://example.com/battery-media/sulfide-pilot-20260628",
+      "published_at": "2026-06-28T09:20:00+08:00",
+      "excerpt": "多家电池企业正在推进硫化物固态电解质的中试布局，行业预计 2027 年前后进入验证阶段。报道称部分产线仍处于设备选型阶段。",
+      "author": "电池产业媒体编辑部",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "sig_20260630_media_route",
+      "source_id": "automotive_media",
+      "title": "固态电池路线观察：氧化物与硫化物并行推进",
+      "url": "https://example.com/auto-media/route-watch-20260630",
+      "published_at": "2026-06-30T11:05:00+08:00",
+      "excerpt": "当前行业呈现氧化物与硫化物并行的格局，多家车企同时押注两条路线，量产时间表普遍落在 2028 年之后。",
+      "author": "汽车产业观察",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "sig_20260702_toyota_timeline",
+      "source_id": "toyota_newsroom",
+      "title": "丰田重申全固态电池 2027—2028 年量产目标与车型计划",
+      "url": "https://example.com/toyota/newsroom/solid-state-20260702",
+      "published_at": "2026-07-02T10:00:00+09:00",
+      "excerpt": "丰田在技术说明会上表示，全固态电池计划于 2027—2028 年实现量产装车，首个应用车型为高端纯电车型。公司同时表示量产初期产能有限。",
+      "author": "Toyota Newsroom",
+      "lang": "en"
+    },
+    {
+      "signal_id": "sig_20260703_patent_general",
+      "source_id": "patents_solid_state",
+      "title": "固态电解质界面涂层相关专利申请公开",
+      "url": "https://example.com/patents/JP2026-045123",
+      "published_at": "2026-07-03T09:00:00+09:00",
+      "excerpt": "一件关于固态电解质界面涂层的专利申请公开，权利要求覆盖硫化物电解质与正极界面的包覆方法，尚未进入实审。",
+      "author": "JPO",
+      "lang": "en"
+    },
+    {
+      "signal_id": "sig_20260710_miit_standard",
+      "source_id": "miit_standards",
+      "title": "工信部就固态电池术语与测试方法团体标准草案征求意见",
+      "url": "https://example.com/miit/standard-draft-20260710",
+      "published_at": "2026-07-10T15:30:00+08:00",
+      "excerpt": "工信部相关标准化技术委员会发布固态电池术语与测试方法团体标准草案，面向行业征求意见，草案尚未进入正式发布流程。",
+      "author": "标准化技术委员会",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "sig_20260715_standard_draft2",
+      "source_id": "battery_industry_media",
+      "title": "固态电池安全测试规范草案讨论稿流出，行业分歧仍在",
+      "url": "https://example.com/battery-media/std-draft-20260715",
+      "published_at": "2026-07-15T08:40:00+08:00",
+      "excerpt": "一份固态电池安全测试规范讨论稿在行业内流传，测试方法与判定门槛仍存在分歧，尚未形成统一的强制规范。",
+      "author": "电池产业媒体编辑部",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "sig_20260717_catl_paper",
+      "source_id": "arxiv_battery",
+      "title": "硫化物固态电解质公斤级制备与界面稳定性研究",
+      "url": "https://example.com/arxiv/2607.04512",
+      "published_at": "2026-07-17T08:00:00+00:00",
+      "excerpt": "研究团队报告了硫化物固态电解质的公斤级制备路线，在实验室条件下循环 200 次后容量保持率 82%，论文为预印本，尚未经过同行评审。",
+      "author": "Zhang et al.",
+      "lang": "en"
+    },
+    {
+      "signal_id": "sig_20260718_qs_ir",
+      "source_id": "quantumscape_ir",
+      "title": "QuantumScape 向两家车企交付 B 样电芯，进入客户验证阶段",
+      "url": "https://example.com/quantumscape/ir/q2-2026",
+      "published_at": "2026-07-18T16:00:00-07:00",
+      "excerpt": "QuantumScape 在二季度致股东信中表示，已向两家汽车合作伙伴交付 B 样电芯，进入客户验证阶段，并称装车测试将在年内启动。",
+      "author": "QuantumScape IR",
+      "lang": "en"
+    },
+    {
+      "signal_id": "sig_20260720_joule_cost",
+      "source_id": "arxiv_battery",
+      "title": "硫化物固态电池成本结构分析：电解质与良率仍是主要瓶颈",
+      "url": "https://example.com/arxiv/2607.04988",
+      "published_at": "2026-07-20T06:30:00+00:00",
+      "excerpt": "论文测算硫化物固态电池在 10GWh 规模下的成本结构，指出电解质材料成本与良率损失合计占总成本的四成以上，规模化拐点尚未出现。",
+      "author": "K. Yamamoto et al.",
+      "lang": "en"
+    },
+    {
+      "signal_id": "sig_20260721_media_qs",
+      "source_id": "battery_industry_media",
+      "title": "QuantumScape 称客户验证进展顺利，2027 年量产目标不变",
+      "url": "https://example.com/battery-media/qs-20260721",
+      "published_at": "2026-07-21T10:10:00+08:00",
+      "excerpt": "据电池产业媒体报道，QuantumScape 在投资者沟通中表示客户验证进展顺利，并重申 2027 年量产目标不变，报道未给出独立测试数据。",
+      "author": "电池产业媒体编辑部",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "sig_20260722_catl_job",
+      "source_id": "careers_board",
+      "title": "宁德时代招聘固态电池中试线工艺工程师，要求硫化物电解质经验",
+      "url": "https://example.com/careers/catl-solid-state-process",
+      "published_at": "2026-07-22T09:00:00+08:00",
+      "excerpt": "岗位职责包括硫化物固态电解质中试线工艺开发、良率提升与设备选型，要求三年以上锂电工艺经验，工作地点宁德。",
+      "author": "CATL Careers",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "sig_20260724_toyota_patent",
+      "source_id": "patents_solid_state",
+      "title": "丰田申请硫化物固态电解质量产工艺专利",
+      "url": "https://example.com/patents/JP2026-051777",
+      "published_at": "2026-07-24T09:00:00+09:00",
+      "excerpt": "该专利申请涉及硫化物固态电解质的连续化量产工艺与设备布置，权利要求聚焦于电解质膜成型工序，公开状态为申请中。",
+      "author": "JPO",
+      "lang": "en"
+    },
+    {
+      "signal_id": "sig_20260725_toyota_repost",
+      "source_id": "battery_industry_media",
+      "title": "丰田重申全固态电池 2027—2028 年量产目标与车型计划（转载）",
+      "url": "https://example.com/battery-media/toyota-repost-20260725",
+      "published_at": "2026-07-25T14:20:00+08:00",
+      "excerpt": "丰田在技术说明会上表示，全固态电池计划于 2027—2028 年实现量产装车，首个应用车型为高端纯电车型。公司同时表示量产初期产能有限。",
+      "author": "电池产业媒体编辑部",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "sig_20260726_analyst",
+      "source_id": "analyst_blog",
+      "title": "分析师观点：固态电池真正的规模化要到 2030 年之后",
+      "url": "https://example.com/analyst/solid-state-2030",
+      "published_at": "2026-07-26T07:30:00+08:00",
+      "excerpt": "分析师认为，考虑到良率与成本曲线，固态电池真正的规模化要到 2030 年之后，当前的量产时间表更像营销口径。",
+      "author": "独立分析师",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "sig_20260726_social",
+      "source_id": "social_forum",
+      "title": "论坛热帖：听说宁德时代明年就要量产固态电池了",
+      "url": "https://example.com/forum/thread/8891",
+      "published_at": "2026-07-26T21:45:00+08:00",
+      "excerpt": "有网友称听说明年就能买到搭载宁德时代固态电池的车，但未提供任何来源或证据。",
+      "author": "匿名用户",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "sig_20260726_media_scale",
+      "source_id": "automotive_media",
+      "title": "固态电池中试线密集开工，设备厂商订单升温",
+      "url": "https://example.com/auto-media/pilot-line-20260726",
+      "published_at": "2026-07-26T16:10:00+08:00",
+      "excerpt": "多家电池厂与设备厂商签署固态电池中试线设备订单，行业预计 2027 年进入客户验证密集期，但良率数据尚未公开。",
+      "author": "汽车产业观察",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "sig_20260727_hype",
+      "source_id": "battery_industry_media",
+      "title": "颠覆性突破！固态电池将重新定义电动车，全球首个量产时代来临",
+      "url": "https://example.com/battery-media/hype-20260727",
+      "published_at": "2026-07-27T08:00:00+08:00",
+      "excerpt": "文章以颠覆性突破为标题讨论固态电池前景，但正文主要是营销表述与概念介绍，没有给出可核验的量产证据或数据。",
+      "author": "内容营销团队",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "sig_20260727_offtopic",
+      "source_id": "analyst_blog",
+      "title": "碳酸锂价格反弹，固态电池概念股集体上涨",
+      "url": "https://example.com/analyst/lithium-price-20260727",
+      "published_at": "2026-07-27T09:15:00+08:00",
+      "excerpt": "受碳酸锂价格反弹影响，固态电池概念股集体上涨，市场情绪明显升温，但产业基本面没有新变化。",
+      "author": "市场观察",
+      "lang": "zh"
+    }
+  ]
+}
