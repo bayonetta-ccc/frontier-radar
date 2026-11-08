@@ -1,5 +1,9 @@
 # 前沿雷达 Frontier Radar
 
+[![CI](https://github.com/bayonetta-ccc/frontier-radar/actions/workflows/ci.yml/badge.svg)](https://github.com/bayonetta-ccc/frontier-radar/actions/workflows/ci.yml)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
 > 围绕一个具体目标，持续监测可说明范围的高可信来源，把新信息转化为**有证据、有边界、可追溯、可回滚的判断更新**；只推送关键变化，并说明它对你意味着什么、下一步该验证什么。
 
 它不是“新闻摘要器”，也不是“全网舆情大屏”。它保存的不是文章，而是**判断状态**：
