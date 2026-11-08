@@ -483,6 +483,8 @@ def page(title: str, body: str, *, active: str = "", base: str = "", footer: str
 def render_digest_body(digest: Digest, *, base: str = "") -> str:
     s = digest.summary
     rel = digest.relevance
+    # 章节编号偏移：基线报告多一个“初始基线”章节
+    off = 1 if digest.mode == "baseline" else 0
     parts: list[str] = []
     parts.append(
         f'<div class="meta"><span class="pill">主题 <b>{_esc(digest.profile.get("name", ""))}</b></span>'
@@ -525,7 +527,7 @@ def render_digest_body(digest: Digest, *, base: str = "") -> str:
             + "".join(_baseline_claim_row(claim) for claim in digest.claims)
             + "</div>"
         )
-    parts.append(f'<h2><span class="idx">{"03" if digest.mode == "baseline" else "02"}</span>本期变化</h2>')
+    parts.append(f'<h2><span class="idx">{2 + off:02d}</span>本期变化</h2>')
     if digest.changes:
         for index, change in enumerate(digest.changes, 1):
             parts.append(render_change_card(digest, change, index))
@@ -535,15 +537,8 @@ def render_digest_body(digest: Digest, *, base: str = "") -> str:
             '<p class="lede">“敢不推送”是去噪能力的一部分：热度不等于实质变化。</p></div>'
         )
 
-    if digest.claims:
-        parts.append(f'<h2><span class="idx">{"04" if digest.timeline else "03"}</span>当前判断状态</h2>')
-        parts.append('<div class="card">')
-        for claim in digest.claims:
-            parts.append(_claim_snapshot_row(claim))
-        parts.append('<p style="margin-top:12px"><a href="claims.html">查看完整状态库与版本历史 →</a></p></div>')
-
     if digest.timeline:
-        parts.append('<h2><span class="idx">03</span>关键时间线</h2><div class="card">')
+        parts.append(f'<h2><span class="idx">{3 + off:02d}</span>关键时间线</h2><div class="card">')
         parts.append(
             '<div class="legend"><span class="l1"><i></i>实际事件</span>'
             '<span class="l2"><i></i>官方计划</span><span class="l3"><i></i>观点/预测</span>'
@@ -559,7 +554,14 @@ def render_digest_body(digest: Digest, *, base: str = "") -> str:
             )
         parts.append("</ul></div>")
 
-    parts.append('<h2><span class="idx">04</span>与我相关</h2><div class="card">')
+    if digest.claims:
+        parts.append(f'<h2><span class="idx">{4 + off:02d}</span>当前判断状态</h2>')
+        parts.append('<div class="card">')
+        for claim in digest.claims:
+            parts.append(_claim_snapshot_row(claim))
+        parts.append('<p style="margin-top:12px"><a href="claims.html">查看完整状态库与版本历史 →</a></p></div>')
+
+    parts.append(f'<h2><span class="idx">{5 + off:02d}</span>与我相关</h2><div class="card">')
     parts.append('<div class="grid two">')
     parts.append(
         '<div><h3>我应该关注</h3><ul class="gaps">'
@@ -589,7 +591,7 @@ def render_digest_body(digest: Digest, *, base: str = "") -> str:
     parts.append("</div></div></div>")
 
     if digest.not_pushed:
-        parts.append('<h2><span class="idx">05</span>本期没有推送的内容</h2><div class="card"><ul class="notpushed">')
+        parts.append(f'<h2><span class="idx">{6 + off:02d}</span>本期没有推送的内容</h2><div class="card"><ul class="notpushed">')
         for item in digest.not_pushed[:12]:
             parts.append(
                 f'<li><span class="badge badge-no_change">{_esc(item.get("info_layer", ""))}</span> '
@@ -598,7 +600,7 @@ def render_digest_body(digest: Digest, *, base: str = "") -> str:
         parts.append("</ul></div>")
 
     coverage = digest.coverage
-    parts.append('<h2><span class="idx">06</span>来源覆盖与限制</h2><div class="card">')
+    parts.append(f'<h2><span class="idx">{7 + off:02d}</span>来源覆盖与限制</h2><div class="card">')
     parts.append(
         f'<p class="lede">采集模式 <b>{_esc(coverage.get("mode", ""))}</b>'
         + ("（合成演示数据）" if coverage.get("synthetic") else "")
@@ -625,8 +627,7 @@ def render_digest_body(digest: Digest, *, base: str = "") -> str:
     parts.append("</div>")
 
     metrics = digest.metrics
-    parts.append('<h2><span class="idx">07</span>验证指标（本期快照）</h2>')
-    metrics = digest.metrics
+    parts.append(f'<h2><span class="idx">{8 + off:02d}</span>验证指标（本期快照）</h2>')
     no_changes = int(metrics.get("changes_with_confidence_delta", 0) or 0) == 0 and not digest.changes
     parts.append('<div class="card"><div class="metrics">')
     for label, value in [
