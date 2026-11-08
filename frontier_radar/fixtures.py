@@ -42,6 +42,57 @@ DEMO_RUNS = [
     },
 ]
 
+# 人形机器人供应链：客户案例 → 被澄清 → 修正，展示“发布会不算证据”
+HUMANOID_RUNS = [
+    {
+        "label": "baseline",
+        "now": "2026-08-01T09:00:00+08:00",
+        "mode": "baseline",
+        "period_days": 45,
+        "auto_confirm": False,
+        "confirm_after": False,
+        "why": "首次追踪：建立客户案例、零部件、标准三条基线判断。",
+    },
+    {
+        "label": "week-2",
+        "now": "2026-08-20T09:00:00+08:00",
+        "mode": "update",
+        "period_days": 30,
+        "auto_confirm": True,
+        "confirm_after": False,
+        "why": "客户侧采购公告出现：判断被增强；发布会与研报被拦在判断之外。",
+    },
+    {
+        "label": "correction",
+        "now": "2026-09-10T09:00:00+08:00",
+        "mode": "update",
+        "period_days": 30,
+        "auto_confirm": True,
+        "confirm_after": False,
+        "why": "客户澄清“只是框架意向”：上期增强被证伪；良率问题削弱零部件判断。",
+    },
+    {
+        "label": "quiet",
+        "now": "2026-09-24T09:00:00+08:00",
+        "mode": "update",
+        "period_days": 20,
+        "auto_confirm": False,
+        "confirm_after": False,
+        "why": "只有转载与论坛讨论：明确输出“本期无需更新”。",
+    },
+]
+
+DEMO_SCENARIOS = {
+    "solid_state_battery": {
+        "task": "config/demo/solid_state_battery/task.json",
+        "runs": DEMO_RUNS,
+    },
+    "humanoid_robot_supply_chain": {
+        "task": "config/demo/humanoid_robot_supply_chain/task.json",
+        "runs": HUMANOID_RUNS,
+    },
+}
+
 
 @dataclass
 class DemoOutput:
@@ -76,6 +127,10 @@ def run_demo(
     reset: bool = True,
     source_mode: str = "offline",
 ) -> DemoOutput:
+    scenario = DEMO_SCENARIOS.get(profile)
+    if scenario is None:
+        raise KeyError(f"没有 {profile!r} 的演示剧本；可用：{', '.join(DEMO_SCENARIOS)}")
+    runs_spec = scenario["runs"]
     if reset:
         reset_workspace(data_dir)
     db_path = Path(data_dir) / "radar.db"
@@ -83,10 +138,10 @@ def run_demo(
     pipeline = RadarPipeline(
         db, profile, fixtures_dir=fixtures_dir, artifact_root=Path(data_dir) / "artifacts"
     )
-    task = load_demo_task()
+    task = load_demo_task(scenario["task"])
     pipeline.create_task(task)
     results: list[PipelineResult] = []
-    for spec in DEMO_RUNS:
+    for spec in runs_spec:
         result = pipeline.run(
             task["task_id"],
             mode=spec["mode"],
@@ -104,7 +159,7 @@ def run_demo(
             f"  · {spec['now'][:10]}  {spec['label']:<9} 变化 {len(result.digest.changes)} "
             f"待确认 {sum(1 for c in result.digest.changes if c.requires_confirmation)} "
             f"— {spec['why']}"
-            for spec, result in zip(DEMO_RUNS, results)
+            for spec, result in zip(runs_spec, results)
         ],
         f"  · 基线判断 {len(results[0].baseline_claims)} 个；当前判断 {len(claims)} 条："
         + "；".join(f"{c.claim_id.split('_')[-1]}={c.status.value}" for c in claims),
@@ -115,4 +170,12 @@ def run_demo(
     return DemoOutput(task_id=task["task_id"], db_path=db_path, runs=results, summary="\n".join(lines))
 
 
-__all__ = ["DEMO_RUNS", "DemoOutput", "load_demo_task", "reset_workspace", "run_demo"]
+__all__ = [
+    "DEMO_RUNS",
+    "DEMO_SCENARIOS",
+    "HUMANOID_RUNS",
+    "DemoOutput",
+    "load_demo_task",
+    "reset_workspace",
+    "run_demo",
+]

@@ -734,7 +734,7 @@ def _build_relevance(
             {
                 "claim_id": change.claim_id,
                 "action": change.next_steps[0] if change.next_steps else "等待下一次独立来源确认。",
-                "why": change.relevance_to_user,
+                "why": truncate(change.why_matters, 120),
             }
         )
     review = []

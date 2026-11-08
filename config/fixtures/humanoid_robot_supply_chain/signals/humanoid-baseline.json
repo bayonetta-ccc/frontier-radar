@@ -1,0 +1,106 @@
+{
+  "demo": true,
+  "notice": "人形机器人供应链的合成演示信号（fixture），用于展示“客户案例优先、发布会降权”的判断逻辑；URL 为 example.com 占位，不代表真实事件。",
+  "signals": [
+    {
+      "signal_id": "h_sig_20260708_sanhua",
+      "source_id": "sanhua_ir",
+      "title": "三花智控：机器人机电执行器项目进入小批量试制",
+      "url": "https://example.com/sanhua/ir/actuator-pilot-20260708",
+      "published_at": "2026-07-08T09:00:00+08:00",
+      "excerpt": "公司在互动平台表示，机器人机电执行器项目已进入小批量试制阶段，尚未形成批量订单，客户验证仍在推进中。",
+      "author": "三花智控",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "h_sig_20260712_tuopu",
+      "source_id": "tuopu_ir",
+      "title": "拓普集团：机器人电驱执行器获客户定点，预计 2027 年批量供货",
+      "url": "https://example.com/tuopu/announcement/20260712",
+      "published_at": "2026-07-12T18:00:00+08:00",
+      "excerpt": "全资子公司收到客户定点通知，为人形机器人电驱执行器供货，预计 2027 年开始批量供货；公司提示定点不等同于最终订单。",
+      "author": "拓普集团",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "h_sig_20260715_green",
+      "source_id": "green_ir",
+      "title": "绿的谐波：谐波减速器产能扩建至年产 50 万台",
+      "url": "https://example.com/green/announcement/capacity-20260715",
+      "published_at": "2026-07-15T18:30:00+08:00",
+      "excerpt": "公司公告拟扩建谐波减速器产线，达产后年产能提升至 50 万台，项目建设周期约 18 个月，客户验证进度将影响产能爬坡。",
+      "author": "绿的谐波",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "h_sig_20260718_trial",
+      "source_id": "industry_media",
+      "title": "某车企总装车间试用 20 台人形机器人搬运物料",
+      "url": "https://example.com/robot-media/oem-trial-20260718",
+      "published_at": "2026-07-18T10:00:00+08:00",
+      "excerpt": "据该车企产线负责人介绍，20 台人形机器人已进入总装车间搬运测试，尚未披露采购金额与后续采购计划。",
+      "author": "机器人产业媒体",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "h_sig_20260720_report",
+      "source_id": "research_report",
+      "title": "券商研报：2030 年人形机器人出货量有望达 100 万台",
+      "url": "https://example.com/research/humanoid-2030",
+      "published_at": "2026-07-20T08:00:00+08:00",
+      "excerpt": "研报预测 2030 年全球人形机器人出货量有望达到 100 万台，市场空间广阔，但未给出供应链良率与成本假设。",
+      "author": "某券商研究所",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "h_sig_20260722_job",
+      "source_id": "jobs",
+      "title": "某机器人公司招聘人形机器人量产工艺工程师",
+      "url": "https://example.com/jobs/humanoid-process-engineer",
+      "published_at": "2026-07-22T09:00:00+08:00",
+      "excerpt": "岗位职责包括整机装配工艺开发、产线良率提升与供应商导入，要求三年以上机器人或汽车零部件工艺经验。",
+      "author": "某机器人公司",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "h_sig_20260725_patent",
+      "source_id": "patents",
+      "title": "灵巧手腱绳传动结构专利申请公开",
+      "url": "https://example.com/patents/CN2026-117788",
+      "published_at": "2026-07-25T09:00:00+08:00",
+      "excerpt": "该专利申请涉及灵巧手腱绳传动与张力补偿结构，权利要求覆盖手指关节布置，目前处于申请公开阶段，尚未授权。",
+      "author": "CNIPA",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "h_sig_20260727_launch",
+      "source_id": "expo",
+      "title": "某厂商发布第三代人形机器人，宣称 2027 年产能 10 万台",
+      "url": "https://example.com/expo/humanoid-gen3-20260727",
+      "published_at": "2026-07-27T15:00:00+08:00",
+      "excerpt": "发布会在现场演示了行走与抓取动作，公司表示 2027 年规划产能 10 万台，但未披露客户订单、售价或交付计划。",
+      "author": "发布会现场报道",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "h_sig_20260728_forum",
+      "source_id": "forum",
+      "title": "网传特斯拉向某供应链企业下达万台订单",
+      "url": "https://example.com/forum/thread/7712",
+      "published_at": "2026-07-28T21:00:00+08:00",
+      "excerpt": "有网友称特斯拉已向某国内供应链企业下达万台级订单，但未提供任何公告、合同或可靠信源。",
+      "author": "匿名用户",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "h_sig_20260730_standard",
+      "source_id": "miit_standards",
+      "title": "工信部就人形机器人标准体系建设指南征求意见",
+      "url": "https://example.com/miit/humanoid-standard-draft-20260730",
+      "published_at": "2026-07-30T16:00:00+08:00",
+      "excerpt": "指南征求意见稿提出人形机器人安全、接口与测试方法的标准框架，面向行业征求意见，尚未正式发布。",
+      "author": "工业和信息化部",
+      "lang": "zh"
+    }
+  ]
+}

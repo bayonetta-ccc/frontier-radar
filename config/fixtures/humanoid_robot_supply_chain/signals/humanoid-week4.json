@@ -1,0 +1,56 @@
+{
+  "demo": true,
+  "notice": "第三期合成信号：客户澄清、标准发布、良率问题，用于展示判断被削弱/证伪后的处理。",
+  "signals": [
+    {
+      "signal_id": "h_sig_20260828_clarify",
+      "source_id": "customer_news",
+      "title": "车企澄清：200 台为框架意向，尚未实际下单",
+      "url": "https://example.com/oem/clarification-20260828",
+      "published_at": "2026-08-28T17:00:00+08:00",
+      "excerpt": "该车企澄清，此前披露的 200 台为框架采购意向，尚未签署正式订单，也未支付预付款，实际采购数量待定。",
+      "author": "某整车厂",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "h_sig_20260902_standard",
+      "source_id": "miit_standards",
+      "title": "《人形机器人安全要求》国家标准正式发布，2027 年实施",
+      "url": "https://example.com/miit/humanoid-safety-standard-20260902",
+      "published_at": "2026-09-02T10:00:00+08:00",
+      "excerpt": "国家标准《人形机器人安全要求》正式发布，规定了整机安全、急停与接口要求，将于 2027 年 3 月 1 日起实施。",
+      "author": "工业和信息化部",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "h_sig_20260905_yield",
+      "source_id": "supply_media",
+      "title": "某丝杠厂商良率未达预期，量产推迟一个季度",
+      "url": "https://example.com/supply-media/screw-yield-delay-20260905",
+      "published_at": "2026-09-05T09:00:00+08:00",
+      "excerpt": "该厂商表示，行星滚柱丝杠磨削良率未达预期，原定 2026 年底的量产计划推迟一个季度，客户验证批次同步延后。",
+      "author": "供应链垂直媒体",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "h_sig_20260908_launch3",
+      "source_id": "expo",
+      "title": "某公司展示新一代灵巧手，称自由度提升至 22 个",
+      "url": "https://example.com/expo/dexterous-hand-20260908",
+      "published_at": "2026-09-08T14:00:00+08:00",
+      "excerpt": "展台展示了新一代灵巧手，公司称自由度提升至 22 个，但未公布寿命测试数据、售价或客户交付情况。",
+      "author": "展会现场报道",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "h_sig_20260909_forum2",
+      "source_id": "forum",
+      "title": "网传某人形机器人公司获大额订单",
+      "url": "https://example.com/forum/thread/8031",
+      "published_at": "2026-09-09T20:00:00+08:00",
+      "excerpt": "有网友称某头部人形机器人公司获得大额订单，但未提供公告、合同或客户名称，讨论多为转述。",
+      "author": "匿名用户",
+      "lang": "zh"
+    }
+  ]
+}

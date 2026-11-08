@@ -1,0 +1,66 @@
+{
+  "demo": true,
+  "notice": "第二期合成信号：客户侧采购、零部件定点、发布会与研报，用于展示“客户案例 vs 发布会”的证据差异。",
+  "signals": [
+    {
+      "signal_id": "h_sig_20260805_purchase",
+      "source_id": "customer_news",
+      "title": "某车企公告：采购 200 台人形机器人用于总装线",
+      "url": "https://example.com/oem/announcement/purchase-200-20260805",
+      "published_at": "2026-08-05T18:00:00+08:00",
+      "excerpt": "该车企公告披露，向两家供应商采购合计 200 台人形机器人用于总装车间物料搬运，首批 50 台计划于 2026 年内交付。",
+      "author": "某整车厂",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "h_sig_20260808_shuanghuan",
+      "source_id": "industry_media",
+      "title": "双环传动：行星滚柱丝杠获客户定点，2027 年批量供货",
+      "url": "https://example.com/robot-media/shuanghuan-order-20260808",
+      "published_at": "2026-08-08T09:30:00+08:00",
+      "excerpt": "双环传动披露收到人形机器人客户定点通知，为其行星滚柱丝杠供应商，计划 2027 年批量供货，当前处于样件验证阶段。",
+      "author": "机器人产业媒体",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "h_sig_20260812_launch2",
+      "source_id": "expo",
+      "title": "某海外厂商发布新一代人形机器人，宣称 2027 年产能 10 万台",
+      "url": "https://example.com/expo/overseas-gen2-20260812",
+      "published_at": "2026-08-12T14:00:00+08:00",
+      "excerpt": "发布会展示了新一代人形机器人的抓取与行走能力，公司称 2027 年产能规划 10 万台，但没有披露客户名单或订单。",
+      "author": "发布会现场报道",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "h_sig_20260814_report2",
+      "source_id": "research_report",
+      "title": "券商上调人形机器人市场空间预测",
+      "url": "https://example.com/research/humanoid-upgrade-20260814",
+      "published_at": "2026-08-14T08:00:00+08:00",
+      "excerpt": "研报将 2030 年人形机器人出货预测从 80 万台上调至 120 万台，理由是头部厂商量产计划提前，但假设未披露。",
+      "author": "某券商研究所",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "h_sig_20260816_order",
+      "source_id": "supply_media",
+      "title": "供应链企业收到客户加单通知，丝杠交付周期延长",
+      "url": "https://example.com/supply-media/screw-leadtime-20260816",
+      "published_at": "2026-08-16T11:00:00+08:00",
+      "excerpt": "据供应链人士称，部分丝杠厂商收到客户加单通知，交付周期由 8 周延长至 12 周，但未披露客户名称与订单规模。",
+      "author": "供应链垂直媒体",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "h_sig_20260818_job2",
+      "source_id": "jobs",
+      "title": "某丝杠厂商招聘量产工艺与设备工程师",
+      "url": "https://example.com/jobs/screw-process-engineer",
+      "published_at": "2026-08-18T09:00:00+08:00",
+      "excerpt": "岗位职责包括行星滚柱丝杠磨削工艺、产线设备调试与良率提升，要求熟悉汽车零部件量产体系。",
+      "author": "某丝杠厂商",
+      "lang": "zh"
+    }
+  ]
+}

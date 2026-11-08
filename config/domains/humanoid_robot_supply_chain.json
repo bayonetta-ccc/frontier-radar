@@ -1,0 +1,854 @@
+{
+  "slug": "humanoid_robot_supply_chain",
+  "name": "人形机器人供应链",
+  "language": "zh",
+  "description": "跟踪整机厂与零部件厂的客户验证、定点、产能与成本进展，优先客户侧证据。",
+  "stages": [
+    {
+      "level": 0,
+      "key": "paper",
+      "label": "论文/实验室",
+      "keywords": [
+        "论文",
+        "预印本",
+        "实验室",
+        "arXiv",
+        "paper"
+      ]
+    },
+    {
+      "level": 1,
+      "key": "prototype",
+      "label": "样机",
+      "keywords": [
+        "样机",
+        "原型机",
+        "工程样机",
+        "原型",
+        "prototype"
+      ]
+    },
+    {
+      "level": 2,
+      "key": "pilot",
+      "label": "小批量试制",
+      "keywords": [
+        "小批量",
+        "试制",
+        "中试",
+        "样件",
+        "小规模"
+      ]
+    },
+    {
+      "level": 3,
+      "key": "validation",
+      "label": "客户验证/定点",
+      "keywords": [
+        "定点",
+        "送样",
+        "客户验证",
+        "POC",
+        "产线试用",
+        "装车",
+        "验收",
+        "框架协议"
+      ]
+    },
+    {
+      "level": 4,
+      "key": "sop_plan",
+      "label": "量产计划",
+      "keywords": [
+        "量产计划",
+        "量产时间表",
+        "规划产能",
+        "2027年量产",
+        "2028年量产",
+        "SOP"
+      ]
+    },
+    {
+      "level": 5,
+      "key": "sop",
+      "label": "规模量产",
+      "keywords": [
+        "已量产",
+        "批量交付",
+        "规模交付",
+        "量产下线",
+        "正式发布",
+        "发布实施"
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "key": "tesla",
+      "name": "特斯拉",
+      "aliases": [
+        "Tesla",
+        "Optimus",
+        "擎天柱"
+      ],
+      "kind": "org"
+    },
+    {
+      "key": "figure",
+      "name": "Figure",
+      "aliases": [
+        "Figure AI"
+      ],
+      "kind": "org"
+    },
+    {
+      "key": "ubtech",
+      "name": "优必选",
+      "aliases": [
+        "UBTech",
+        "Walker"
+      ],
+      "kind": "org"
+    },
+    {
+      "key": "unitree",
+      "name": "宇树科技",
+      "aliases": [
+        "Unitree",
+        "宇树"
+      ],
+      "kind": "org"
+    },
+    {
+      "key": "agibot",
+      "name": "智元机器人",
+      "aliases": [
+        "AgiBot",
+        "智元",
+        "远征"
+      ],
+      "kind": "org"
+    },
+    {
+      "key": "fourier",
+      "name": "傅利叶",
+      "aliases": [
+        "Fourier"
+      ],
+      "kind": "org"
+    },
+    {
+      "key": "xpeng",
+      "name": "小鹏",
+      "aliases": [
+        "XPeng",
+        "IRON"
+      ],
+      "kind": "org"
+    },
+    {
+      "key": "sanhua",
+      "name": "三花智控",
+      "aliases": [
+        "三花",
+        "Sanhua"
+      ],
+      "kind": "supplier"
+    },
+    {
+      "key": "tuopu",
+      "name": "拓普集团",
+      "aliases": [
+        "拓普",
+        "Tuopu"
+      ],
+      "kind": "supplier"
+    },
+    {
+      "key": "green",
+      "name": "绿的谐波",
+      "aliases": [
+        "绿的",
+        "Leaderdrive"
+      ],
+      "kind": "supplier"
+    },
+    {
+      "key": "shuanghuan",
+      "name": "双环传动",
+      "aliases": [
+        "双环",
+        "Shuanghuan"
+      ],
+      "kind": "supplier"
+    },
+    {
+      "key": "wuzhou",
+      "name": "五洲新春",
+      "aliases": [
+        "五洲",
+        "Wuzhou"
+      ],
+      "kind": "supplier"
+    },
+    {
+      "key": "mingzhi",
+      "name": "鸣志电器",
+      "aliases": [
+        "鸣志",
+        "MOONS"
+      ],
+      "kind": "supplier"
+    },
+    {
+      "key": "zhaowei",
+      "name": "兆威机电",
+      "aliases": [
+        "兆威",
+        "Zhaowei"
+      ],
+      "kind": "supplier"
+    },
+    {
+      "key": "yinshi",
+      "name": "因时机器人",
+      "aliases": [
+        "因时",
+        "Inspire"
+      ],
+      "kind": "supplier"
+    },
+    {
+      "key": "kunwei",
+      "name": "坤维科技",
+      "aliases": [
+        "坤维",
+        "Kunwei"
+      ],
+      "kind": "supplier"
+    },
+    {
+      "key": "orbbec",
+      "name": "奥比中光",
+      "aliases": [
+        "奥比",
+        "Orbbec"
+      ],
+      "kind": "supplier"
+    },
+    {
+      "key": "auto_oem",
+      "name": "整车厂",
+      "aliases": [
+        "车企",
+        "主机厂",
+        "汽车厂"
+      ],
+      "kind": "customer"
+    },
+    {
+      "key": "miit",
+      "name": "工业和信息化部",
+      "aliases": [
+        "工信部",
+        "MIIT"
+      ],
+      "kind": "regulator"
+    }
+  ],
+  "anchors": [
+    {
+      "key": "customer_cases",
+      "name": "客户案例与批量采购",
+      "claim_kind": "commercialization",
+      "keywords": [
+        "客户",
+        "订单",
+        "定点",
+        "采购",
+        "中标",
+        "交付",
+        "试用",
+        "验收",
+        "复购",
+        "框架协议",
+        "加单",
+        "交付周期",
+        "框架意向"
+      ],
+      "entity_keys": [
+        "sanhua",
+        "tuopu",
+        "green",
+        "shuanghuan",
+        "wuzhou",
+        "mingzhi",
+        "zhaowei",
+        "yinshi",
+        "kunwei",
+        "orbbec",
+        "ubtech",
+        "unitree",
+        "agibot",
+        "fourier",
+        "tesla",
+        "figure",
+        "auto_oem"
+      ],
+      "question": "人形机器人供应链是否已经出现可核验的批量客户案例，而不是只有送样与战略合作？",
+      "baseline_claim": "人形机器人供应链的客户验证已从送样进入小批量采购，但批量规模仍然有限",
+      "watch_indicators": [
+        "客户侧公告是否披露采购数量、金额与交付时间",
+        "“定点”是否转化为批量订单或验收",
+        "同一客户是否出现复购或扩单"
+      ],
+      "next_verification": "优先找客户侧公告、采购合同或验收披露，而不是供应商单方面的“定点”表述。"
+    },
+    {
+      "key": "components",
+      "name": "核心零部件供给能力",
+      "claim_kind": "technology",
+      "keywords": [
+        "谐波减速器",
+        "行星滚柱丝杠",
+        "丝杠",
+        "灵巧手",
+        "六维力",
+        "力传感器",
+        "空心杯电机",
+        "无框力矩电机",
+        "良率",
+        "执行器",
+        "电机",
+        "减速器",
+        "扩产",
+        "试制",
+        "产能",
+        "专利"
+      ],
+      "entity_keys": [
+        "green",
+        "shuanghuan",
+        "wuzhou",
+        "mingzhi",
+        "zhaowei",
+        "yinshi",
+        "kunwei",
+        "sanhua",
+        "tuopu"
+      ],
+      "question": "核心零部件是否已经达到可支撑量产的良率与产能？",
+      "baseline_claim": "谐波减速器与丝杠已进入小批量供货，灵巧手与六维力传感器仍处验证阶段",
+      "watch_indicators": [
+        "丝杠与减速器的良率、交付周期",
+        "灵巧手自由度与寿命是否公开测试数据",
+        "扩产项目是否按期投产"
+      ],
+      "next_verification": "核对扩产项目的投产时间与客户验证批次，而不是只看规划产能。"
+    },
+    {
+      "key": "cost",
+      "name": "整机成本与降本路径",
+      "claim_kind": "commercialization",
+      "keywords": [
+        "成本",
+        "BOM",
+        "降本",
+        "价格",
+        "毛利",
+        "国产化"
+      ],
+      "entity_keys": [
+        "sanhua",
+        "tuopu",
+        "green",
+        "shuanghuan",
+        "wuzhou",
+        "mingzhi",
+        "zhaowei",
+        "yinshi"
+      ],
+      "question": "整机 BOM 成本是否已经降到可以规模化应用的水平？",
+      "baseline_claim": "整机 BOM 成本仍高于规模化应用阈值，降本主要依赖丝杠与灵巧手国产化",
+      "create_baseline_claim": false,
+      "watch_indicators": [
+        "整机厂是否公开 BOM 或售价区间",
+        "关键零部件价格是否出现两位数下降",
+        "国产替代是否带来可验证的毛利改善"
+      ],
+      "next_verification": "找整机厂或客户的成本披露，而不是券商测算。"
+    },
+    {
+      "key": "standards",
+      "name": "标准与安全规范",
+      "claim_kind": "standard",
+      "keywords": [
+        "标准",
+        "国标",
+        "团标",
+        "安全要求",
+        "接口",
+        "认证",
+        "征求意见",
+        "正式发布",
+        "实施"
+      ],
+      "entity_keys": [
+        "miit",
+        "ubtech",
+        "unitree",
+        "agibot"
+      ],
+      "question": "人形机器人的安全与接口标准是否已经正式实施？",
+      "baseline_claim": "人形机器人标准体系仍在征求意见，安全与接口规范尚未统一",
+      "claim_template": "人形机器人标准体系仍停留在{stage}，安全与接口规范尚未统一",
+      "high_risk": true,
+      "watch_indicators": [
+        "标准是否从征求意见转为正式发布",
+        "是否明确实施日期与强制条款",
+        "整机厂是否按标准送检"
+      ],
+      "next_verification": "在标准信息平台核对标准号、状态与实施日期。",
+      "claim_templates": {
+        "3": "人形机器人标准体系仍处于征求意见阶段，安全与接口规范尚未统一",
+        "4": "人形机器人标准体系仍处于征求意见阶段，安全与接口规范尚未统一",
+        "5": "《人形机器人安全要求》国家标准已正式发布，2027 年起实施，接口规范仍在完善"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "id": "sanhua_ir",
+      "name": "三花智控公告/互动易",
+      "kind": "official",
+      "authority": "high",
+      "cadence": "weekly",
+      "offline_file": "signals/humanoid-baseline.json",
+      "independent_group": "sanhua"
+    },
+    {
+      "id": "tuopu_ir",
+      "name": "拓普集团公告",
+      "kind": "official",
+      "authority": "high",
+      "cadence": "weekly",
+      "offline_file": "signals/humanoid-baseline.json",
+      "independent_group": "tuopu"
+    },
+    {
+      "id": "green_ir",
+      "name": "绿的谐波公告",
+      "kind": "official",
+      "authority": "high",
+      "cadence": "weekly",
+      "offline_file": "signals/humanoid-baseline.json",
+      "independent_group": "green"
+    },
+    {
+      "id": "customer_news",
+      "name": "整车厂/制造客户公告",
+      "kind": "official",
+      "authority": "high",
+      "cadence": "weekly",
+      "offline_file": "signals/humanoid-baseline.json",
+      "independent_group": "customer"
+    },
+    {
+      "id": "miit_standards",
+      "name": "工信部/标准信息平台",
+      "kind": "standard",
+      "authority": "high",
+      "cadence": "monthly",
+      "offline_file": "signals/humanoid-baseline.json",
+      "independent_group": "miit"
+    },
+    {
+      "id": "industry_media",
+      "name": "机器人产业媒体",
+      "kind": "media",
+      "authority": "medium",
+      "cadence": "daily",
+      "offline_file": "signals/humanoid-baseline.json",
+      "independent_group": "media_pool"
+    },
+    {
+      "id": "supply_media",
+      "name": "供应链垂直媒体",
+      "kind": "media",
+      "authority": "medium",
+      "cadence": "daily",
+      "offline_file": "signals/humanoid-baseline.json",
+      "independent_group": "media_pool"
+    },
+    {
+      "id": "research_report",
+      "name": "券商研报（观点）",
+      "kind": "media",
+      "authority": "low",
+      "cadence": "weekly",
+      "offline_file": "signals/humanoid-baseline.json",
+      "independent_group": "research"
+    },
+    {
+      "id": "jobs",
+      "name": "企业招聘页",
+      "kind": "job",
+      "authority": "medium",
+      "cadence": "weekly",
+      "offline_file": "signals/humanoid-baseline.json",
+      "independent_group": "jobs"
+    },
+    {
+      "id": "patents",
+      "name": "专利检索",
+      "kind": "patent",
+      "authority": "high",
+      "cadence": "monthly",
+      "offline_file": "signals/humanoid-baseline.json",
+      "independent_group": "patents"
+    },
+    {
+      "id": "expo",
+      "name": "发布会/展会",
+      "kind": "media",
+      "authority": "low",
+      "cadence": "daily",
+      "offline_file": "signals/humanoid-baseline.json",
+      "independent_group": "media_pool"
+    },
+    {
+      "id": "forum",
+      "name": "论坛/社交平台",
+      "kind": "social",
+      "authority": "low",
+      "cadence": "daily",
+      "offline_file": "signals/humanoid-baseline.json",
+      "independent_group": "social"
+    }
+  ],
+  "category_blueprint": {
+    "customer_validation": [
+      {
+        "pattern": "定点|批量订单|采购|中标|客户验证|送样|产线试用|装车|验收|复购|框架协议|试用|试点",
+        "score": 1.4,
+        "label": "客户/订单"
+      },
+      {
+        "pattern": "客户|订单|下单",
+        "score": 0.3,
+        "label": "客户动作"
+      }
+    ],
+    "mass_production_plan": [
+      {
+        "pattern": "量产计划|量产时间表|规划产能|2027年量产|2028年量产|SOP",
+        "score": 1.0,
+        "label": "量产计划"
+      },
+      {
+        "pattern": "2027|2028",
+        "score": 0.3,
+        "label": "时间节点"
+      }
+    ],
+    "mass_production_actual": [
+      {
+        "pattern": "已量产|批量交付|规模交付|量产下线",
+        "score": 1.0,
+        "label": "规模量产"
+      },
+      {
+        "pattern": "交付",
+        "score": 0.3,
+        "label": "交付动作"
+      }
+    ],
+    "capacity": [
+      {
+        "pattern": "扩产|产能|年产能|产线扩建|新增产线",
+        "score": 1.5,
+        "label": "产能"
+      },
+      {
+        "pattern": "良率|量产推迟|交付周期|投产",
+        "score": 0.6,
+        "label": "制造状态"
+      }
+    ],
+    "product": [
+      {
+        "pattern": "发布|亮相|展示|新一代|新品|首秀",
+        "score": 1.2,
+        "label": "产品发布"
+      },
+      {
+        "pattern": "机器人本体|整机",
+        "score": 0.1,
+        "label": "整机"
+      }
+    ],
+    "official_announcement": [
+      {
+        "pattern": "公告|宣布|签署|战略合作",
+        "score": 0.6,
+        "label": "官方公告"
+      },
+      {
+        "pattern": "表示|称|目标",
+        "score": 0.2,
+        "label": "表态"
+      }
+    ],
+    "research": [
+      {
+        "pattern": "论文|预印本|实验室",
+        "score": 0.8,
+        "label": "研究"
+      }
+    ],
+    "patent": [
+      {
+        "pattern": "专利|专利申请",
+        "score": 0.9,
+        "label": "专利"
+      }
+    ],
+    "standard": [
+      {
+        "pattern": "标准|国标|团标|征求意见|安全要求|认证",
+        "score": 1.5,
+        "label": "标准"
+      }
+    ],
+    "funding": [
+      {
+        "pattern": "融资|IPO|轮融资",
+        "score": 0.9,
+        "label": "融资"
+      }
+    ],
+    "hiring": [
+      {
+        "pattern": "招聘|岗位|JD",
+        "score": 1.5,
+        "label": "招聘"
+      }
+    ],
+    "opinion_market": [
+      {
+        "pattern": "研报|预测|市场空间|概念股|出货量",
+        "score": 1.5,
+        "label": "观点/预测"
+      }
+    ],
+    "pilot_line": [
+      {
+        "pattern": "小批量|试制|中试|样件",
+        "score": 1.5,
+        "label": "小批量试制"
+      },
+      {
+        "pattern": "小规模|工程验证",
+        "score": 0.3,
+        "label": "工程验证"
+      }
+    ]
+  },
+  "stage_patterns": {
+    "paper": [
+      {
+        "pattern": "论文|预印本|实验室|arXiv",
+        "score": 3.0,
+        "label": "论文/实验室"
+      }
+    ],
+    "prototype": [
+      {
+        "pattern": "样机|原型机|工程样机|原型",
+        "score": 3.0,
+        "label": "样机"
+      }
+    ],
+    "pilot": [
+      {
+        "pattern": "小批量|试制|中试|样件",
+        "score": 3.0,
+        "label": "小批量试制"
+      }
+    ],
+    "validation": [
+      {
+        "pattern": "定点|送样|客户验证|POC|产线试用|装车|验收|框架协议|征求意见|征求意见稿|框架|意向|试用|试点",
+        "score": 3.0,
+        "label": "客户验证"
+      },
+      {
+        "pattern": "试用|测试",
+        "score": 0.8,
+        "label": "测试"
+      }
+    ],
+    "sop_plan": [
+      {
+        "pattern": "量产计划|量产时间表|规划产能|2027年量产|2028年量产|SOP",
+        "score": 3.0,
+        "label": "量产计划"
+      }
+    ],
+    "sop": [
+      {
+        "pattern": "已量产|批量交付|规模交付|量产下线",
+        "score": 3.0,
+        "label": "规模量产"
+      },
+      {
+        "pattern": "正式发布|发布实施|强制实施",
+        "score": 1.6,
+        "label": "发布实施"
+      }
+    ]
+  },
+  "lexicon": {
+    "delay": [
+      "推迟",
+      "延期",
+      "延后",
+      "跳票",
+      "delay"
+    ],
+    "failure": [
+      "失败",
+      "未通过",
+      "良率未达预期",
+      "取消",
+      "终止"
+    ],
+    "denial": [
+      "澄清",
+      "否认",
+      "不实",
+      "未实际",
+      "并未",
+      "没有下单",
+      "未下单"
+    ],
+    "rumor": [
+      "传闻",
+      "据传",
+      "消息人士",
+      "爆料",
+      "网传"
+    ],
+    "hype": [
+      "颠覆",
+      "革命性",
+      "全球首款",
+      "遥遥领先",
+      "重新定义"
+    ]
+  },
+  "info_layers": {
+    "rumor": [
+      "传闻",
+      "据传",
+      "消息人士",
+      "爆料",
+      "网传"
+    ],
+    "opinion": [
+      "研报",
+      "预测",
+      "认为",
+      "预计",
+      "市场空间",
+      "观点"
+    ],
+    "inference": [
+      "意味着",
+      "可能",
+      "有望",
+      "说明"
+    ],
+    "company_claim": [
+      "公告",
+      "宣布",
+      "表示",
+      "称",
+      "目标",
+      "计划",
+      "宣称"
+    ],
+    "fact": [
+      "采购",
+      "中标",
+      "验收",
+      "交付",
+      "发布",
+      "实施",
+      "签署",
+      "披露",
+      "收到",
+      "获",
+      "通知"
+    ],
+    "version": [
+      "更新",
+      "修订",
+      "版本"
+    ]
+  },
+  "negation_phrases": [
+    "澄清",
+    "否认",
+    "不实",
+    "未实际",
+    "尚未",
+    "并未",
+    "没有下单",
+    "未下单"
+  ],
+  "noise": {
+    "off_topic_patterns": [
+      "概念股",
+      "涨停",
+      "基金净值",
+      "路演报名",
+      "招聘会"
+    ],
+    "marketing_patterns": [
+      "颠覆",
+      "革命性",
+      "全球首款",
+      "遥遥领先",
+      "重新定义"
+    ],
+    "min_excerpt_chars": 24,
+    "noise_categories": [
+      "opinion_market",
+      "hype_product"
+    ],
+    "launch_evidence_patterns": [
+      "订单",
+      "定点",
+      "采购",
+      "中标",
+      "交付",
+      "验收",
+      "产线",
+      "试用",
+      "复购",
+      "合同"
+    ]
+  },
+  "coverage_notes": [
+    "不覆盖券商付费研报与供应链访谈。",
+    "客户侧披露通常滞后于供应商“定点”公告，存在时间差。",
+    "发布会与展会口径不等于客户验证。",
+    "未覆盖海外供应链的一手公告（仅英文/中文公开版本）。"
+  ],
+  "gap_questions": [
+    "哪些“定点”已经转化为可披露的批量订单？",
+    "丝杠与灵巧手的良率是否达到量产要求？",
+    "标准发布后，安全测试是否会成为准入门槛？"
+  ]
+}

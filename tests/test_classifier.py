@@ -157,6 +157,27 @@ class ClassifierCase(unittest.TestCase):
         judgement = self.classifier.classify(signal)
         self.assertEqual(judgement.anchors, ())
 
+    def test_launch_only_is_noise(self) -> None:
+        humanoid = Classifier(load_profile("humanoid_robot_supply_chain"))
+        signal = make_signal(
+            "某厂商发布第三代人形机器人，宣称 2027 年产能 10 万台",
+            "发布会展示了新一代人形机器人，公司表示 2027 年规划产能 10 万台，但未披露客户订单或交付计划。",
+            source_id="expo",
+        )
+        judgement = humanoid.classify(signal)
+        self.assertIn("发布会", judgement.noise_reason)
+        self.assertEqual(humanoid.direction_for(judgement, "commercialization"), 0)
+
+    def test_launch_with_delivery_is_not_noise(self) -> None:
+        humanoid = Classifier(load_profile("humanoid_robot_supply_chain"))
+        signal = make_signal(
+            "某厂商发布新一代人形机器人并向客户交付首批 100 台",
+            "发布会同时宣布向三家制造客户交付首批 100 台，用于产线搬运测试。",
+            source_id="expo",
+        )
+        judgement = humanoid.classify(signal)
+        self.assertFalse(judgement.noise_reason)
+
     def test_official_claim_layer(self) -> None:
         signal = make_signal(
             "丰田宣布固态电池试产线 2026 年启动",

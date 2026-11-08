@@ -1,0 +1,26 @@
+{
+  "demo": true,
+  "notice": "第四期合成信号：只有转载与论坛讨论，用于验证“无实质变化时不推送”。",
+  "signals": [
+    {
+      "signal_id": "h_sig_20260918_repost",
+      "source_id": "industry_media",
+      "title": "《人形机器人安全要求》国家标准正式发布，2027 年实施（转载）",
+      "url": "https://example.com/robot-media/standard-repost-20260918",
+      "published_at": "2026-09-18T10:00:00+08:00",
+      "excerpt": "国家标准《人形机器人安全要求》正式发布，规定了整机安全、急停与接口要求，将于 2027 年 3 月 1 日起实施。",
+      "author": "机器人产业媒体",
+      "lang": "zh"
+    },
+    {
+      "signal_id": "h_sig_20260920_thread",
+      "source_id": "forum",
+      "title": "论坛讨论：安全国标发布后，人形机器人供应链会怎么变",
+      "url": "https://example.com/forum/thread/8110",
+      "published_at": "2026-09-20T19:00:00+08:00",
+      "excerpt": "网友围绕新国标展开讨论，观点集中在检测认证与成本上升，但没有提供新的公告或数据。",
+      "author": "匿名用户",
+      "lang": "zh"
+    }
+  ]
+}

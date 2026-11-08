@@ -50,6 +50,7 @@ class Anchor:
     next_verification: str = ""
     baseline_claim: str = ""
     claim_template: str = ""
+    claim_templates: dict[str, str] = field(default_factory=dict)
     create_baseline_claim: bool = True
 
 
@@ -193,6 +194,9 @@ def load_profile(path_or_slug: str | Path, base_dir: Path | None = None) -> Prof
             next_verification=str(item.get("next_verification", "")),
             baseline_claim=str(item.get("baseline_claim", "")),
             claim_template=str(item.get("claim_template", "")),
+            claim_templates={
+                str(k): str(v) for k, v in (item.get("claim_templates") or {}).items()
+            },
             create_baseline_claim=bool(item.get("create_baseline_claim", True)),
         )
         for item in raw.get("anchors", [])

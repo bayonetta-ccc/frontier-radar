@@ -109,6 +109,15 @@ python -m frontier_radar demo --quiet   # 报告与站点在 data/ 下
 演示数据是**合成的 fixture**（链接为 `example.com` 占位），目的是让任何人 clone 后都能复现同一套
 证据链、判断更新与拦截逻辑；它不代表真实世界的最新进展。报告顶部会始终标注这一点。
 
+第二个演示场景（人形机器人供应链，产品经理视角）：
+
+```bash
+python -m frontier_radar --profile humanoid_robot_supply_chain --data-dir data_humanoid demo
+```
+
+它演示一条更贴近“不要相信发布会”的判断链：客户采购公告先增强判断 → 客户澄清“只是框架意向”
+后证伪 → 良率问题削弱零部件判断 → 标准发布触发转向；发布会与券商研报全程被拦在判断之外。
+
 ## 演示里会发生什么
 
 演示任务是一个真实场景：**固态电池 × 产业研究员 × 6 个月内形成路线建议**。
@@ -350,7 +359,7 @@ frontier_radar/
   cli.py         命令行入口
   validate.py    领域配置与 fixture 校验
 config/
-  domains/       领域配置（当前：固态电池；另附量化研究示例）
+  domains/       领域配置：固态电池、人形机器人供应链、量化研究
   demo/          演示任务定义
   fixtures/      合成演示信号
 tests/           52 个单元/端到端测试（python -m unittest discover -s tests）

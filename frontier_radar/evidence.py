@@ -27,7 +27,7 @@ CATEGORY_STAGE_CAP = {
     "official_announcement": 4,
     "product": 2,
     "patent": 1,
-    "standard": 4,
+    "standard": 5,
     "pilot_line": 2,
     "capacity": 2,
     "customer_validation": 3,
@@ -151,6 +151,22 @@ class Classifier:
     def _as_list(value: object) -> list[str]:
         return [str(v) for v in value] if isinstance(value, (list, tuple)) else []
 
+    def _has_customer_evidence(self, text: str) -> bool:
+        """判断文本是否包含客户侧/交付侧证据，用于拦截“只有发布会”的信号。
+
+        先剔除含否定词的短句，避免“未披露客户订单”被当成客户证据。
+        """
+        patterns = self._as_list(self.noise.get("launch_evidence_patterns")) or [
+            "订单", "定点", "采购", "中标", "交付", "验收", "产线", "试用", "复购",
+        ]
+        clauses = re.split(r"[。；;]", text)
+        for clause in clauses:
+            if re.search(r"(未|没有|尚未|并未|无)", clause):
+                continue
+            if any(str(p).lower() in clause.lower() for p in patterns):
+                return True
+        return False
+
     # ---- 词表匹配 ---------------------------------------------------------
     def _category_scores(self, text: str) -> dict[str, float]:
         """按“锚点短语”给类别打分。
@@ -186,6 +202,10 @@ class Classifier:
         notes: list[str] = []
 
         category_scores = self._category_scores(text)
+        # 标题决定“这条信息是什么”，正文只做补充：避免正文里的背景词把类别带偏
+        title_scores = self._category_scores(title)
+        for category_key, value in title_scores.items():
+            category_scores[category_key] = category_scores.get(category_key, 0) + value * 2
         category = max(category_scores, key=category_scores.get) if category_scores else "media_report"
         notes.append(f"类别={category}（词表命中 {category_scores.get(category, 0):.2f}）")
 
@@ -209,7 +229,7 @@ class Classifier:
             notes.append("负向信号：阶段按已知进展上限处理")
         info_layer = self.detect_info_layer(text, signal)
         entities = self.detect_entities(text)
-        anchors = self.detect_anchors(text, entities)
+        anchors = self.detect_anchors(text, entities, category)
         novelty = self.estimate_novelty(text, seen_titles or [])
         noise_reason = self.detect_noise(signal, text, category, info_layer)
 
@@ -245,7 +265,12 @@ class Classifier:
         best = 0
         if self._stage_blueprint:
             for level, _label, entries in self._stage_blueprint:
-                total = sum(weight for pattern, weight in entries if pattern.search(text))
+                total = 0.0
+                for pattern, weight in entries:
+                    for match in pattern.finditer(text):
+                        if not _is_negated(text, match.start()):
+                            total += weight
+                            break
                 if total >= 1.5:
                     best = max(best, level)
         else:
@@ -308,7 +333,7 @@ class Classifier:
                 found.append(entity)
         return found
 
-    def detect_anchors(self, text: str, entities: Iterable) -> list[Anchor]:
+    def detect_anchors(self, text: str, entities: Iterable, category: str = "") -> list[Anchor]:
         entity_keys = {e.key for e in entities}
         anchor_tokens = tokens(text)
         scored: list[tuple[float, Anchor]] = []
@@ -324,12 +349,22 @@ class Classifier:
             if matched_entities:
                 score += 2.0
             if keyword_hits:
-                score += min(keyword_hits * 0.55, 2.2)
+                score += min(keyword_hits * 0.65, 2.4)
             name_overlap = overlap_ratio(tokens(anchor.name), anchor_tokens)
             score += name_overlap * 1.2
-            if score >= 2.0:
+            threshold = 2.0 if entity_keys else 1.2
+            if score >= threshold:
                 scored.append((score, anchor))
         scored.sort(key=lambda item: item[0], reverse=True)
+        # 分数接近时，按“信号类别 → 判断类型”偏好打破平局：
+        # 客户验证优先落到商业化判断，产能/专利优先落到技术判断，标准落到标准判断
+        preferred_kind = _preferred_claim_kind(category)
+        if preferred_kind:
+            scored = [
+                (score + (0.3 if anchor.claim_kind == preferred_kind else 0.0), anchor)
+                for score, anchor in scored
+            ]
+            scored.sort(key=lambda item: item[0], reverse=True)
         # 只保留最强的一个归属：一条信号同时“支持”多条判断，是最常见的证据污染源
         return [anchor for _score, anchor in scored[:1]]
 
@@ -352,6 +387,10 @@ class Classifier:
             return "信息量过低：缺少可核验的原文内容"
         if category in set(self.noise.get("noise_categories", [])):
             return f"营销或观点内容（{category}），没有可核验的新事实"
+        # 发布会/产品亮相：没有客户侧证据时，只能算“公司说了”，不能算进展
+        launch = re.search(r"(发布会|展会|首秀|亮相|现场演示)", text) is not None
+        if (category == "product" or launch) and not self._has_customer_evidence(text):
+            return "仅发布会/产品亮相，未提供客户案例、订单或交付证据"
         if info_layer is InfoLayer.RUMOR and self.profile.source_authority(signal.source_id) != "high":
             return "仅匿名/未证实传闻，未达到更新门槛"
         marketing_hits = 0
@@ -386,8 +425,14 @@ class Classifier:
 
     def direction_for(self, judgement: SignalJudgement, claim_kind: str) -> int:
         """判断一条信号的类别是否与判断类型对得上（方向由 polarity 决定）。"""
+        if judgement.noise_reason:
+            return 0
         category = judgement.category
-        if category in {"hype_product", "opinion_market"}:
+        if category in {"hype_product", "opinion_market", "product"}:
+            # 产品发布/亮相只是“存在这个产品”，不能当作客户验证或量产证据
+            return 0
+        if category in {"hiring", "funding"}:
+            # 招聘与融资是背景信息，不直接支持或削弱一条技术/商业化判断
             return 0
         if judgement.info_layer in {InfoLayer.RUMOR, InfoLayer.OPINION}:
             return 0
@@ -439,6 +484,24 @@ class Classifier:
         if judgement.noise_reason:
             score *= 0.4
         return round(min(score, 1.0), 3)
+
+
+def _is_negated(text: str, index: int, window: int = 10) -> bool:
+    """判断某个匹配前面是否紧邻否定词，例如“尚未正式发布”。"""
+    prefix = text[max(0, index - window):index]
+    return re.search(r"(尚未|未|没有|并未|并未曾|不再|否认)$", prefix) is not None or re.search(
+        r"(尚未|未|没有|并未)[^，。；]{0,4}$", prefix
+    ) is not None
+
+
+def _preferred_claim_kind(category: str) -> str:
+    if category in {"customer_validation", "mass_production_plan", "mass_production_actual"}:
+        return "commercialization"
+    if category in {"pilot_line", "capacity", "research", "patent", "product"}:
+        return "technology"
+    if category == "standard":
+        return "standard"
+    return ""
 
 
 def dedupe_key(signal: Signal) -> tuple[str, str]:

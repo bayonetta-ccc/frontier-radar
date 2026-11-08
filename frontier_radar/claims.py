@@ -12,6 +12,7 @@
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from typing import Iterable, Sequence
 
@@ -317,12 +318,11 @@ class ClaimEngine:
         contra_ids = {a.signal_id for a in bucket.new_contra}
         # 独立来源组只统计“本期新增证据”，历史证据不参与变化说明
         groups = _independent_groups(self.profile, [*support_ids, *contra_ids], signals)
-        # 置信度 = 当前值 + 新支持（全权重）+ 历史支持（0.35 折扣，仅作底盘）− 新反向证据。
+        # 置信度只由“本期新增证据”推动；历史支持已经体现在当前置信度里，不能重复加分。
         # 上限 0.88：判断始终保留“可能错”的空间，避免被推成确定事实。
         projected = clamp(
             claim.confidence
             + 0.62 * new_support_weight
-            + 0.35 * min(prior_support, 0.6)
             - 0.55 * new_contra_weight,
             0.08,
             0.88,
@@ -351,7 +351,9 @@ class ClaimEngine:
             judgements={j.signal_id: j for j in judgements},
         )
 
-        strong_contra = contra_weight >= self.thresholds.falsify_contra
+        strong_contra = contra_weight >= self.thresholds.falsify_contra or (
+            _has_explicit_denial(self.profile, contra_ids, signals) and contra_weight >= 0.4
+        )
         covered = groups >= self.thresholds.min_independent_groups and not _single_source_trap(
             self.profile, contra_ids, signals
         )
@@ -594,7 +596,13 @@ class ClaimEngine:
         stage_before = claim.stage_level
         stage_text = ""
         if stage_after != stage_before:
-            stage_text = f"阶段由 {self.profile.stage_label(stage_before)} 变为 {self.profile.stage_label(stage_after)}。"
+            before_label = _stage_label_for(
+                claim.claim_kind, stage_before, self.profile.stage_label(stage_before)
+            )
+            after_label = _stage_label_for(
+                claim.claim_kind, stage_after, self.profile.stage_label(stage_after)
+            )
+            stage_text = f"阶段由 {before_label} 变为 {after_label}。"
 
         why_changed = " ".join(
             part
@@ -857,13 +865,18 @@ def _falsified_statement(claim: Claim, evaluation: Evaluation, signals: dict[str
     lead = next(iter(evaluation.contra), None)
     evidence = ""
     if lead and lead.signal_id in signals:
-        evidence = truncate(signals[lead.signal_id]["title"], 56)
-    return "原判断已被否定，降级为待重建假设" + (f"（依据：{evidence}）" if evidence else "")
+        evidence = truncate(signals[lead.signal_id]["title"], 48)
+    core = re.sub(r"（主体：.*?）$", "", claim.statement)
+    return f"原判断已被否定：{truncate(core, 46)}" + (
+        f"（依据：{evidence}）" if evidence else ""
+    )
 
 
 def _shift_statement(claim: Claim, stage: int, profile: Profile) -> str:
     anchor = next((a for a in profile.anchors if a.key == claim.anchor_key), None)
     stage_label = _stage_label_for(claim.claim_kind, stage, profile.stage_label(stage))
+    if anchor and anchor.claim_templates.get(str(stage)):
+        return anchor.claim_templates[str(stage)]
     if anchor and anchor.claim_template:
         return anchor.claim_template.format(stage=stage_label)
     return f"{claim.statement}（阶段更新为：{stage_label}）"
@@ -873,8 +886,8 @@ _STANDARD_STAGE_LABELS = {
     0: "研究阶段",
     1: "研究阶段",
     2: "草案阶段",
-    3: "草案阶段",
-    4: "公开征求意见",
+    3: "征求意见",
+    4: "征求意见",
     5: "发布实施",
 }
 
@@ -1004,22 +1017,22 @@ def _relevance_text(claim: Claim, task: dict, anchor: Anchor | None, kind: Chang
     stage = claim.stage_label
     if kind is ChangeKind.FALSIFY:
         opening = (
-            f"作为{role}，你正在{('做' + purpose) if purpose else '跟踪这个主题'}，"
+            f"作为{role}，你正在{purpose or '跟踪这个主题'}，"
             f"这次证伪意味着不能再用“{claim.statement}”作为前提：需要重新找证据，而不是继续加固旧结论。"
         )
     elif kind is ChangeKind.WEAKEN:
         opening = (
-            f"作为{role}，你正在{('做' + purpose) if purpose else '跟踪这个主题'}，"
+            f"作为{role}，你正在{purpose or '跟踪这个主题'}，"
             f"这条判断当前处于 {stage}，本次{delta:+.2f} 的变化削弱了它，相关计划需要留出回旋空间。"
         )
     elif kind is ChangeKind.SHIFT:
         opening = (
-            f"作为{role}，你正在{('做' + purpose) if purpose else '跟踪这个主题'}，"
+            f"作为{role}，你正在{purpose or '跟踪这个主题'}，"
             f"这条判断的阶段或表述发生了变化（当前 {stage}），既有结论的适用范围需要重新界定。"
         )
     else:
         opening = (
-            f"作为{role}，你正在{('做' + purpose) if purpose else '跟踪这个主题'}，"
+            f"作为{role}，你正在{purpose or '跟踪这个主题'}，"
             f"这条判断当前处于 {stage}，本次{delta:+.2f} 的变化{'支持' if delta >= 0 else '削弱'}了它。"
         )
     pieces = [opening]

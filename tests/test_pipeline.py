@@ -289,6 +289,49 @@ class ApprovalCase(unittest.TestCase):
         self.assertFalse(rejected.pending_review)
 
 
+class HumanoidScenarioCase(unittest.TestCase):
+    """第二个演示场景：客户案例 → 被澄清；发布会必须被拦在判断之外。"""
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.tmp = tempfile.TemporaryDirectory()
+        cls.data_dir = Path(cls.tmp.name) / "data"
+        cls.output = run_demo(
+            data_dir=cls.data_dir, profile="humanoid_robot_supply_chain"
+        )
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        cls.tmp.cleanup()
+
+    def test_baseline_has_three_claims(self) -> None:
+        self.assertEqual(len(self.output.runs[0].baseline_claims), 3)
+
+    def test_launch_and_report_are_suppressed(self) -> None:
+        week2 = self.output.runs[1].digest
+        reasons = " ".join(item["reason"] for item in week2.not_pushed)
+        self.assertIn("发布会", reasons)
+        self.assertIn("观点", reasons)
+        self.assertTrue(
+            any("产能 10 万台" in item["title"] for item in week2.not_pushed),
+            "发布会口径不应进入判断",
+        )
+
+    def test_customer_case_strengthens_then_falsified(self) -> None:
+        week2 = self.output.runs[1].digest
+        self.assertTrue(any(c.kind is ChangeKind.STRENGTHEN for c in week2.changes))
+        correction = self.output.runs[2].digest
+        kinds = {c.kind for c in correction.changes}
+        self.assertIn(ChangeKind.FALSIFY, kinds)
+        self.assertIn(ChangeKind.WEAKEN, kinds)
+        self.assertIn(ChangeKind.SHIFT, kinds)
+
+    def test_quiet_period(self) -> None:
+        quiet = self.output.runs[3].digest
+        self.assertEqual(quiet.changes, [])
+        self.assertIn("无需更新", quiet.summary["headline"])
+
+
 class IsolationCase(unittest.TestCase):
     def test_engine_rejects_backwards_time(self) -> None:
         tmp = tempfile.TemporaryDirectory()
